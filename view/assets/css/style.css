@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,400&family=Raleway&family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Raleway&family=Varela&display=swap');
+
+:root { 
+  --negro: #000000; 
+  --blanco: #ffffff; 
+  --dorado: #AD8A64;
+  --grisclaro: #737373;
+  --gris: #35323dfc;
+  --sombra: #1a1a1a;
+  --fondo: #111111;
+} 
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background-color: var(--fondo);
+}

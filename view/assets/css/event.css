@@ -1,0 +1,169 @@
+body {
+    overflow-x: hidden; 
+    margin-top: 10%;
+}
+/**
+*
+*   HEADER
+*
+**/
+header {
+    background: var(--fondo);
+    border-bottom: 1.5px solid #222; /* Borde inferior oscuro (ajusta según tus necesidades) */
+}
+
+h3 {
+    font-size: xx-large;
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--dorado);
+}
+
+#pasado {
+    margin-top: 1rem;
+}
+
+h4 {
+    font-size: x-large;
+    padding-top: 1rem;
+    margin-left: 5%;
+    margin-bottom: 1.5rem;
+    color: var(--blanco);
+}
+
+/**
+*
+*   CARD
+*
+**/
+.card {
+    display: flex;
+    flex-direction: column;
+    position: inherit;
+    top: 25px;
+    margin: 0 auto;
+    height: 275px;
+    width: 200px;
+    background-color: var(--sombra);
+    border-radius: 15px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+    transform: translateX(-50%);
+    transition: left 0.5s ease-out;
+    will-change: left;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.card__header {
+    position: relative;
+    padding: 30px 30px 20px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    color: #fff;
+}
+
+.card__logo {
+    width: 32px;
+    height: auto;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+.card__title {
+    margin: 15px 0 10px;
+    font-size: 15px;
+    line-height: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.card__body {
+    background-color: var(--sombra);
+    position: relative;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding: 20px 30px 10px;
+    margin-top: auto; /* Ajusta la propiedad de margin-top aquí */
+}
+
+.card__image {
+    z-index: 1;
+    position: absolute;
+    top: -150px;
+    left: -30px;
+    width: 125%;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: row;
+    color: var(--blanco);
+}
+.card__date {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    margin: 0 0.6em 0.5em -1em;
+    margin-left: -12px;
+}
+.card__day {
+    font-size: x-large;
+    
+}
+.card__month {
+    font-size: medium;
+}
+
+.card_event {
+    padding: 0 0 0 10em;
+}
+.card__name {
+    margin-top: 0;
+    font-size: clamp(10px, 1vw, 14px); /* Ajusta los valores según tus necesidades */
+    font-weight: 600;
+    white-space: normal;
+}
+.card-link {
+    text-decoration: none; /* Puedes personalizar este estilo según tus necesidades */
+}
+
+.upcoming-events {
+    display: flex;
+    margin: 0 7rem;
+}
+
+.events-container {
+    overflow-x: auto; /* Permite el desplazamiento horizontal solo en este contenedor */
+    white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
+    margin-bottom: 10px;
+}
+
+.card {
+    margin: 0 1rem; /* Margen entre tarjetas */
+    background-size: cover;
+    flex-shrink: 0; /* Evita que las tarjetas se reduzcan más allá de su tamaño original */
+}
+
+.first-card {
+    margin-left: 2.5rem; /* Margen para la primera tarjeta */
+}
+
+@media (max-width: 768px) { 
+    body {
+        margin-top: 5rem;
+    }
+    h4 {
+        margin-left: 10%;
+    }
+}

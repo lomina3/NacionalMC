@@ -1,0 +1,312 @@
+body {
+    overflow-x: hidden;
+    margin-top: 10%;
+}
+
+
+
+/***
+*
+*   HEADER
+*
+***/
+header {
+    background: var(--fondo);
+    border-bottom: 1.5px solid #222; /* Borde inferior oscuro (ajusta según tus necesidades) */
+}
+
+
+
+/***
+*
+*   FOOTER
+*
+***/
+footer {
+    background: var(--fondo);
+    border-top: 1.5px solid #222; /* Borde inferior oscuro (ajusta según tus necesidades) */
+}
+
+/* Estilos para la página de entradas */
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-details {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+#event-image {
+    flex: 1;
+    max-width: 18.75rem;
+    max-height: 23rem;
+    margin-right: 2rem;
+    margin-left: 3rem;
+    border-radius: 15px;
+}
+
+.event-info {
+    flex: 2;
+}
+
+.event-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: var(--dorado);
+}
+
+.event-date {
+    color: var(--blanco);
+}
+
+.event-description {
+    color: var(--grisclaro);
+}
+
+.ticket-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ticket-option {
+    flex: 1;
+    margin: 0 10px 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+.ticket-option h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.ticket-option p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Estilos para el contenedor del input numérico */
+.ticket-quantity-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#ticket-price {
+    font-size: large;
+    color: var(--blanco);
+}
+#ticket-quantity {
+    font-size: large;
+    color: var(--blanco);
+}
+
+#ticket-quantity {
+    font-size: large;
+    color: var(--blanco);
+    margin-top: .2rem;
+    padding-top: .2rem;
+}
+.ticket-quantity-container {
+    margin-top: .2rem;
+    padding-top: .2rem;
+}
+
+/* Estilos para el input numérico */
+input[type="number"] {
+    appearance: textfield; 
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    border: 1px solid var(--tu-color-de-borde);
+    border-radius: 10px;
+    padding: 8px;
+    width: 50px;
+    text-align: center;
+}
+
+/* Estilos para las flechas del input numérico */
+.fa-angle-up,
+.fa-angle-down {
+    position: absolute;
+    color: var(--negro);
+    cursor: pointer;
+}
+
+.fa-angle-up {
+    right: 8px;
+}
+
+.fa-angle-down {
+    left: 8px;
+}
+.last-column {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+    font-weight: bold;
+    color: var(--blanco);
+}
+
+/***
+*
+*       POP-UP
+*
+***/
+.popup-container {
+    color: var(--blanco);
+    margin-left: auto;
+    margin-right: 1rem; /* Separación a la derecha del popup respecto al botón */
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background-color: var(--sombra);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    max-width: 15rem;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.fa-circle-info {
+    cursor: pointer;
+}
+
+
+/***
+*
+*       CART-BUTTON
+*
+***/
+.cart-button {
+	position: relative;
+	padding: 8px;
+	width: 10rem;
+	height: 4rem;
+	border: 0;
+	border-radius: 10px;
+	background-color: var(--sombra);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+	overflow: hidden;
+}
+.cart-button:hover {
+	background-color: var(--sombra);
+}
+.cart-button:active {
+	transform: scale(.9);
+}
+
+.cart-button .fa-shopping-cart {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: -10%;
+	font-size: 2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button .fa-wine-bottle {
+	position: absolute;
+	z-index: 3;
+	top: -20%;
+	left: 52%;
+	font-size: 1.2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button span {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 50%;
+	font-size: 1.2em;
+	color: #fff;
+	transform: translate(-50%,-50%);
+}
+.cart-button span.add-to-cart {
+	opacity: 1;
+}
+.cart-button span.added {
+	opacity: 0;
+}
+
+.cart-button.clicked .fa-shopping-cart {
+    color: var(--dorado);
+	animation: cart 1.5s ease-in-out forwards;
+}
+.cart-button.clicked .fa-wine-bottle {
+    color: var(--dorado);
+	animation: bottle 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.add-to-cart {
+	animation: txt1 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.added {
+	animation: txt2 1.5s ease-in-out forwards;
+}
+@keyframes cart {
+	0% {
+		left: -10%;
+	}
+	40%, 60% {
+		left: 50%;
+	}
+	100% {
+		left: 110%;
+	}
+}
+@keyframes bottle {
+	0%, 40% {
+		top: -20%;
+	}
+	60% {
+		top: 40%;
+		left: 52%;
+	}
+	100% {
+		top: 40%;
+		left: 112%;
+	}
+}
+@keyframes txt1 {
+	0% {
+		opacity: 1;
+	}
+	20%, 100% {
+		opacity: 0;
+	}
+}
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+/***
+*
+*       RESPONSIVE
+*
+***/
+@media (max-width: 768px) {
+
+}

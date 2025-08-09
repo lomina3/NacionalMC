@@ -1,0 +1,329 @@
+* {
+	align-items: center;
+}
+header {
+	background: var(--fondo);
+	border-bottom: 1.5px solid #222; /* Borde inferior oscuro (ajusta según tus necesidades) */
+}
+  .tarjeta {
+	background-color: #fff;
+	margin: 8rem 15%;
+	border-radius: 15px;
+	align-items: center;
+}
+ .cf:before, .cf:after {
+	 content: " ";
+	 display: table;
+	 clear: both;
+}
+ .wrap {
+	 width: 75%;
+	 margin: 0 auto;	
+	 padding: 5% 0;
+	 margin-bottom: 5em;
+}
+ .tituloTicket {
+	 font-weight: bold;
+	 text-align: center;
+	 font-size: 2em;
+	 padding: 1em 0;
+	 border-bottom: 1px solid #dadada;
+	 letter-spacing: 3px;
+	 text-transform: uppercase;
+}
+ .tituloTicket span {
+	 font-weight: normal;
+	 font-style: italic;
+	 text-transform: lowercase;
+	 color: #777;
+}
+ .cabecera {
+	 padding: 1em 0;
+	 border-bottom: 1px solid #d0d0d0;
+}
+ .cabecera h1 {
+	 font-size: 2em;
+	 float: left;
+}
+ .cabecera a.continuar:link, .cabecera a.continuar:visited {
+	 text-decoration: none;
+	 letter-spacing: -0.015em;
+	 font-size: 0.75em;
+	 padding: 1em;
+	 color: #fff;
+	 background: var(--dorado);
+	 font-weight: bold;
+	 border-radius: 50px;
+	 float: right;
+	 text-align: right;
+	 -webkit-transition: all 0.25s linear;
+	 -moz-transition: all 0.25s linear;
+	 -ms-transition: all 0.25s linear;
+	 -o-transition: all 0.25s linear;
+	 transition: all 0.25s linear;
+}
+ .cabecera a.continuar:after {
+	 content: "\276f";
+	 padding: 0.5em;
+	 position: relative;
+	 right: 0;
+	 -webkit-transition: all 0.15s linear;
+	 -moz-transition: all 0.15s linear;
+	 -ms-transition: all 0.15s linear;
+	 -o-transition: all 0.15s linear;
+	 transition: all 0.15s linear;
+}
+ .cabecera a.continuar:hover, .cabecera a.continuar:focus, .cabecera a.continuar:active .btn.continuar {
+	 background: var(--dorado);
+}
+ .cabecera a.continuar:hover:after, .cabecera a.continuar:focus:after, .cabecera a.continuar:active:after {
+	 right: -10px;
+}
+.cabecera h1 {
+	margin-left: 0.7rem;
+}
+ .carrito {
+	padding: 1em 0;
+}
+ .carrito .items {
+	 display: block;
+	 width: 100%;
+	 padding: 1.5em;
+}
+ .carrito .items .infoWrap {
+	 display: table;
+	 width: 100%;
+}
+ .carrito .items .seccionCarrito {
+	 display: table-cell;
+	 vertical-align: middle;
+}
+ .carrito .items .seccionCarrito .itemNumber {
+	 font-size: 0.75em;
+	 margin-bottom: 0.5em;
+}
+ .carrito .items .seccionCarrito h3 {
+	 font-size: 1em;
+	 font-weight: bold;
+	 text-transform: uppercase;
+	 letter-spacing: 0.025em;
+}
+ .carrito .items .seccionCarrito p {
+	 display: inline-block;
+	 font-size: 0.85em;
+	 color: var(--fondo);
+}
+ .carrito .items .seccionCarrito p .quantity {
+	 font-weight: bold;
+	 color: #333;
+}
+ .carrito .items .seccionCarrito p.stockStatus {
+	 color: var(--dorado);
+	 font-weight: bold;
+	 padding: 0.5em 0 0 1em;
+	 text-transform: uppercase;
+}
+ p.stockStatus.out {
+	 color: #f69679;
+}
+ .carrito .items .seccionCarrito .itemImg {
+	 width: 4em;
+	 float: left;
+}
+ .carrito .items .seccionCarrito.qtyWrap, .carrito .items .seccionCarrito.prodTotal {
+	 text-align: center;
+}
+ .carrito .items .seccionCarrito.qtyWrap p, .carrito .items .seccionCarrito.prodTotal p {
+	 font-weight: bold;
+	 font-size: 1.25em;
+}
+ .carrito .items .seccionCarrito input.qty {
+	 width: 2em;
+	 text-align: center;
+	 font-size: 1em;
+	 padding: 0.25em;
+	 margin: 1em 0.5em 0 0;
+}
+ .carrito .items .seccionCarrito .itemImg {
+	 width: 8em;
+	 display: inline;
+	 padding-right: 1em;
+}
+.eliminar {
+	width: 10rem;
+	height: auto;
+	display: inline-block;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background-color: var(--blanco);
+}
+.eliminar:hover {
+    transform: scale(1.4);
+}
+.eliminar i {
+    transition: 1.5s;
+}
+.fa-solid.fa-x {
+	width: 100%;
+	height: auto;
+	color: var(--fondo);
+}
+ .btn:link, .btn:visited {
+	 text-decoration: none;
+	 letter-spacing: -0.015em;
+	 font-size: 1em;
+	 padding: 1em 3em;
+	 color: #fff;
+	 background: var(--dorado);
+	 font-weight: bold;
+	 border-radius: 50px;
+	 float: right;
+	 text-align: right;
+	 -webkit-transition: all 0.25s linear;
+	 -moz-transition: all 0.25s linear;
+	 -ms-transition: all 0.25s linear;
+	 -o-transition: all 0.25s linear;
+	 transition: all 0.25s linear;
+}
+ .btn:after {
+	 content: "\276f";
+	 padding: 0.5em;
+	 position: relative;
+	 right: 0;
+	 -webkit-transition: all 0.15s linear;
+	 -moz-transition: all 0.15s linear;
+	 -ms-transition: all 0.15s linear;
+	 -o-transition: all 0.15s linear;
+	 transition: all 0.15s linear;
+}
+ .btn:hover, .btn:focus, .btn:active {
+	 background: var(--dorado);
+}
+ .btn:hover:after, .btn:focus:after, .btn:active:after {
+	 right: -10px;
+}
+ .promoCode .btn {
+	 font-size: 0.85em;
+	 padding: 0.5em 2em;
+}
+/* TOTAL AND CHECKOUT */
+ .subtotal {
+	float: right;
+	width: 35%;
+}
+.totalRow {
+	list-style-type: none;
+}
+ .subtotal .totalRow {
+	 padding: 0.5em;
+	 text-align: right;
+}
+ .subtotal .totalRow.final {
+	font-size: 1.25em;
+	font-weight: bold;
+}
+ .subtotal .totalRow span {
+	display: inline-block;
+	padding: 0 0 0 1em;
+	text-align: right;
+}
+ .subtotal .totalRow .label {
+	font-size: 0.85em;
+	text-transform: uppercase;
+	color: #777;
+}
+ .subtotal .totalRow .value {
+	 letter-spacing: -0.025em;
+	 width: 35%;
+}
+@media only screen and (max-width: 67.5rem) and (min-width: 28.75rem){
+	.tarjeta {
+		width: 90%;
+		margin: 6rem 3%;
+		margin-left: 5%;
+	}
+	.wrap {
+		width: 86%;
+		margin: 0 7%;	
+		padding: 2% 0;
+		margin-bottom: 5em;
+	}
+	.seccionCarrito {
+		width: 50%;
+	}
+	div.prodTotal.seccionCarrito {
+		width: 30%;
+		margin: 0;
+	}
+	.eliminar {
+		margin:0 7%;
+		width: 1rem;
+	}
+	span.value {
+		margin-right: 7%;
+	}
+	.subtotal .value {
+		padding: 0;
+	}
+	.eliminar {
+		display: inline-block;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		background-color: var(--blanco);
+	}
+	.eliminar:hover {
+		transform: scale(1.2);
+	}
+	.eliminar i {
+		transition: 1.5s;
+	}
+}
+@media only screen and (max-width: 28.75rem){
+	.tarjeta {
+		width: 90%;
+		margin: 6rem 3%;
+		margin-left: 5%;
+	}
+	.wrap {
+		width: 86%;
+		margin: 0 7%;	
+		padding: 2% 0;
+		margin-bottom: 5em;
+	}
+	.seccionCarrito {
+		width: 50%;
+	}
+	div.prodTotal.seccionCarrito {
+		width: 30%;
+		margin: 0;
+	}
+	.eliminar {
+		margin:0 7%;
+		width: 1rem;
+	}
+	span.value {
+		margin-right: 4rem;
+	}
+	.subtotal .value {
+		padding: 0;
+	}
+	.cabecera h1 {
+		display: none;
+	}
+	.eliminar {
+		display: inline-block;
+		border: none;
+		cursor: pointer;
+		border-radius: 5px;
+		background-color: var(--blanco);
+	}
+	.eliminar:hover {
+		transform: scale(1.2);
+	}
+	.eliminar i {
+		transition: 1.5s;
+	}
+}

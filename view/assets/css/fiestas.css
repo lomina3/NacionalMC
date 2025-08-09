@@ -1,0 +1,114 @@
+/***
+*
+*   HEADER
+*
+***/
+header {
+    background: var(--fondo);
+    border-bottom: 1.5px solid #222; /* Borde inferior oscuro (ajusta según tus necesidades) */
+}
+
+/***
+*
+*   FIESTAS
+*
+***/
+.reservation-container {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 9rem;
+    background-color: var(--fondo);
+}
+
+.form-fiestas input,
+.form-fiestas textarea {
+    width: 100%;
+}
+
+.date-event {
+    color: var(--gris); /* Cambia a tu color deseado */
+}
+
+h2 {
+    font-size: xx-large;
+    color: var(--dorado);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+form {
+    width: 100%;
+    margin: 1rem auto;
+    background-color: var(--fondo);
+}
+
+form label {
+    color: var(--blanco);
+    font-weight: 550;
+    margin-left: 1rem;
+}
+
+form input,
+form select,
+form textarea {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    margin-top: 0.6rem;
+    background-color: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Varela' sans-serif;
+    border: 1px solid var(--gris);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 9rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--gris);
+}
+
+.text-form,
+.informacion {
+    text-align: center;
+}
+
+.dropdown-container {
+    display: inline-block;
+    position: relative;
+}
+
+#dropdown-icon {
+    background-color: var(--fondo);
+    position: absolute;
+    top: 46%;
+    right: 1.5%; /* Ajusta la distancia desde el borde derecho según sea necesario */
+    color: var(--gris);
+    font-size: 1.2rem; /* Ajusta según sea necesario */
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1; /* Asegura que el botón esté sobre el campo de entrada */
+}
+
+#eventTypeInput {
+    padding-right: 30px;
+}
+
+.dropdown-container {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .reservation-container {
+        width: 90%;
+    }
+    #dropdown-icon {
+        right: 4%;
+    }
+    
+}

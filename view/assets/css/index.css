@@ -1,0 +1,246 @@
+/***
+*
+*   MAIN
+*
+***/
+main .content {
+  color: var(--blanco);
+}
+
+/***
+*
+*   EVENTO DESTACADO
+*
+***/
+.evento-destacado-titulo {
+  font-size: 2rem;
+  color: var(--dorado);
+  padding-top: 1rem;
+}
+
+.evento-destacado {
+  width: 95%;
+  position: relative;
+  max-width: 50rem;
+  margin: 1rem auto;
+  background: var(--sombra);
+  padding: 25px;
+  border-radius: 25px;
+  height: 25rem;
+  transition: all 0.3s;
+  margin-bottom: 2.5rem;
+}
+
+.evento-tarjeta {
+  display: flex;
+  align-items: center;
+  padding-right: 25px;
+}
+
+.evento-img {
+  transform: translateY(12%) translateX(-24%);
+  height: 20rem;
+  width: 18rem;
+  background-image: linear-gradient(10deg, #af8f6f 0%, #AD8A64 74%);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.evento-img img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  opacity: 75%;
+  border-radius: 15px;
+  transition: all 0.3s;
+} 
+
+.evento-fecha {
+  color: var(--blanco);
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 500;
+}
+
+.evento-titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dorado);
+  margin-bottom: 20px;
+}
+
+.evento-texto {
+  color: var(--grisclaro);
+  width: 32rem;
+  margin-bottom: 30px;
+  line-height: 1.5em;
+}
+
+/***
+*
+*   GALLERY
+*
+***/
+
+
+
+/***
+*
+*   PARALLAX
+*
+***/
+main .parallax-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Parallax background, la imagen */
+main .parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/41.png') center/cover fixed;
+  z-index: -1;
+}
+
+main .content {
+  z-index: 1;
+  padding: 1rem;
+}
+ 
+main .content-container h1 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 10px 0;
+  padding: 0;
+  position: relative;
+  /* Estilos para el título */
+}
+
+main .content-container h1::after {
+  content: "";
+  display: block;
+  width: 6.5rem; /* Ancho de la barra */
+  height: .4rem; /* Altura de la barra */
+  background-color: var(--dorado); /* Color de la barra */
+  position: absolute;
+  bottom: -1rem;
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Centra exactamente */
+}
+
+main h1 {
+  display: flex;
+  padding-bottom: 0.75rem;
+  justify-content: center;
+  font-weight: 900;
+}
+
+main .content-container {
+  background-color: var(--sombra);
+  width: 40%;
+  margin-left: 6%; /* Ajusta el margen izquierdo según tus necesidades */
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: justify;
+}
+main .content-container p {
+  /* Estilos para el texto */
+  margin-top: 3rem; /* Ajusta el margen con respecto al texto */
+  line-height: 1.3;
+}
+
+
+
+/**
+*
+*   FLECHA UP
+*
+**/
+#flecha_up {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem; /* Cambiado a 2rem en lugar de 100rem */
+  width: 2.2rem;
+  color: var(--gris);
+  font-size: 24px;
+  line-height: 44px;
+  text-align: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  opacity: 0; /* Añadido para ocultar inicialmente */
+}
+#flecha_up:focus,
+#flecha_up:hover {
+  color: var(--grisclaro);
+  background-color: var(--sombra);
+}
+
+#flecha_up.visible {
+  opacity: 1;
+}
+
+
+
+/***
+*   RESPONSIVE
+***/
+@media (max-width: 768px) {
+
+  main .content-container {
+    background-color: var(--fondo);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 0; /* Elimina el redondeo de las esquinas */
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    margin: 0;
+  }
+
+  main .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ajusta la altura al 100% de la ventana */
+    background: url('../images/41.png') center/cover fixed;
+    z-index: -1;
+  }
+
+  main .content-container h1 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+    font-size: 2rem;
+  }
+
+  .evento-destacado {
+    height: auto;
+    max-height: 48rem;
+    max-width: 20rem;
+  }
+
+  .evento-texto{
+    max-width: 10rem;
+  }
+  .evento-img {
+    transform: translateY(5%) translateX(-24%);
+  }
+
+
+}

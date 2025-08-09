@@ -1,0 +1,502 @@
+/*
+*   SECTIONS 
+*/
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 30%;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.25rem;
+    font-size: 24px;
+    transition: 1.5s;
+    transition: transform 0.5s ease-in-out;
+    transform-origin: center;
+    cursor: pointer;
+}
+
+.right-section {
+  align-items: center;
+  justify-content: center;
+  flex: 70%;
+  display: flex;
+  background-color: var(--fondo);
+  overflow-y: auto;
+}
+
+
+
+/***
+*   BACK BUTTON
+***/
+.back-arrow {
+  list-style: none;
+  position: absolute;
+  top: 1.4rem; /* Ajusta la posición desde arriba según sea necesario */
+  left: 32.5%; /* Ajusta la posición desde la izquierda según sea necesario */
+}
+
+.back-arrow li {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.back-arrow a {
+  color: var(--gris);
+  font-size: 24px;
+  display: inline-block;
+  line-height: 44px;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  margin-right: 8px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.back-arrow a:focus,
+.back-arrow a:hover {
+  color: var(--grisclaro);
+  background-color: var(--sombra);
+}
+
+
+
+
+/***
+*
+* FORM
+*
+***/
+form {
+  width: 50%;
+  margin-right: 5%;
+  background-color: var(--fondo);
+}
+
+.form-registro {
+  margin-top: 10%;
+  padding-top: 10%;
+}
+
+form h2 {
+  font-size: xx-large;
+  color: var(--dorado);
+  text-align: center; /* Centra horizontalmente */
+  margin-bottom: 2.5rem; /* Ajusta según sea necesario */
+}
+
+form .casillas {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  color: var(--blanco);
+  font-weight: 550;
+  margin-left: 1rem;
+}
+
+form input {
+  position: relative; /* Agrego posición relativa para los elementos hijos (el ojo) posicionados absolutamente */
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  margin-top: .6rem;
+
+  background-color: var(--fondo);
+  color: var(--blanco);
+  font-family: 'Varela' sans-serif;
+  border: 1px solid var(--gris);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+form input::placeholder {
+  color: var(--gris); /* Cambia el color según tus preferencias */
+}
+
+.name-container {
+  display: inline-flex;
+  margin-left: 5%;
+}
+.mail-container,
+.birthdate-container {
+  width: 100%;
+  margin-left: 5%;
+}
+.password-container {
+  display: grid;
+  width: 100%;
+  margin-left: 5%;
+}
+
+/*
+*   MOSTRAR CONTRASEÑA
+*/
+.input-group {
+  display: inline-block;
+  position: relative;
+}
+
+#togglePassword {
+  background-color: var(--fondo);
+  position: absolute;
+  top: 45%;
+  right: 12.5%; /* Ajusta la distancia desde el borde derecho según sea necesario */
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1; /* Asegura que el botón esté sobre el campo de entrada */
+}
+
+/* Estilos adicionales para el ícono de Font Awesome */
+#showIcon {
+  color: var(--gris);
+  font-size: 1.2rem; /* Ajusta según sea necesario */
+}
+
+.checkbox-container {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: auto 1fr; /* Primera columna para el checkbox, segunda columna para el texto */
+  align-items: center; /* Centra verticalmente los elementos en la cuadrícula */
+}
+
+.checkbox-container input {
+  margin-right: 5px; /* Ajusta el margen entre el checkbox y el texto según sea necesario */
+}
+
+.enlace {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+}
+
+.birthdate-container input {
+  color: var(--gris); /* Cambia a tu color deseado */
+}
+
+
+/***
+*
+* BOTON
+*
+***/
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+}
+
+
+
+.button-box {
+  border-width: none;
+  background-color: var(--fondo);
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BOTON - background */ 
+.relative {
+  position: relative;
+  color: var(--dorado);
+}
+.all-bg {
+  background-color: var(--fondo);
+}
+.inline-flex {
+  display: inline-flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.font-bold {
+  font-weight: 700;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.group:hover .group-hover\:top-0 {
+  top: 0;
+}
+
+/* BOTON - animación*/
+.w-32 {
+  width: 8rem;
+}
+.h-32 {
+  height: 8rem;
+}
+.rotate-45 {
+  transform: translate(0, var(--tw-translate-y))
+    rotate(45deg) skewX(0) skewY(0)
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-12 {
+  transform: translate(-3rem, var(--tw-translate-y))
+    rotate(45deg) skewX(0) skewY(0)
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-2 {
+  transform: translate(var(--tw-translate-x), -0.5rem)
+    rotate(45deg) skewX(0) skewY(0)
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.absolute {
+  position: absolute;
+}
+.left-0 {
+  left: 0;
+}
+.top-0 {
+  top: 0;
+}
+.bg-black {
+  background-color: var(--dorado);
+}
+.opacity-\[3\%\] {
+  opacity: 3%;
+}
+
+/* BOTON - Parte 4 */
+.absolute {
+  position: absolute;
+}
+.top-0 {
+  top: 0;
+}
+.left-0 {
+  left: 0;
+}
+.w-48 {
+  width: 12rem;
+}
+.h-48 {
+  height: 12rem;
+}
+.-mt-1 {
+  margin-top: -0.25rem;
+}
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-500 {
+  transition-duration: 0.5s;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.rotate-45 {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+  rotate(45deg) skewX(0) skewY(0)
+  scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-56 {
+  --tw-translate-x: -14rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+  rotate(45deg) skewX(0) skewY(0)
+  scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-24 {
+--tw-translate-y: -6rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+  rotate(45deg) skewX(0) skewY(0)
+  scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.bg-black {
+  background-color: var(--dorado);
+}
+.opacity-100 {
+  opacity: 1;
+}
+.group:hover .group-hover\:-translate-x-8 {
+  transform: translate(-2rem, var(--tw-translate-y))
+  rotate(45deg) skewX(0) skewY(0)
+  scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* BOTON - Parte 5*/
+.relative {
+  position: relative;
+}
+.w-full {
+  width: 100%;
+}
+.text-left {
+  text-align: left;
+}
+.text-black {
+  color: rgb(0 0 0 / 1);
+}
+.transition-colors {
+  transition-property: color, background-color, border-color,
+  text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-200 {
+  transition-duration: 0.2s;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.group:hover .group-hover\:text-gray-200 {
+  color: rgb(26 26 26 / 1);
+}
+
+/* BOTON - border */
+.absolute {
+position: absolute;
+}
+.inset-0 {
+inset: 0px;
+}
+.border-2 {
+border-width: 2px;
+border-color: var(--gris);
+}
+.rounded-full {
+border-radius: 9999px;
+}
+
+
+/*
+*   LINK LOGIN
+*/
+p {
+ text-align: center;
+ color: var(--grisclaro);
+ margin-bottom: 2rem;
+}
+p a {
+ color: var(--blanco);
+ text-decoration:underline;
+}
+
+
+
+@media (max-width: 768px) {
+  body {
+    overflow:auto;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    flex: 100%;
+  }
+
+  .right-section {
+    flex: 100%;
+  }
+
+  form {
+    width: 90%; /* Ajusta según sea necesario */
+    margin: 1rem auto; /* Ajusta según sea necesario */
+  }
+  .form-registro {
+    margin-top: 7rem;
+    padding-top: 7rem;
+  }
+  form h2 {
+    text-align: center; /* Centra horizontalmente */
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem; /* Ajusta según sea necesario */
+  }
+
+  .name-container,
+  .mail-container,
+  .password-container,
+  .birthdate-container,
+  .checkbox-container {
+    margin-left: 7.5%;
+  }
+  .name-container {
+    display: flex;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+  }
+
+  .mail-container,
+  .password-container,
+  .birthdate-container {
+    width: 95%;
+  }
+
+  .checkbox-container {
+    margin-right: 7.5%;
+  }
+
+  .button-box {
+    height: 5rem; /* Ajusta según sea necesario */
+  }
+
+  .back-arrow {
+    display: flex;
+    top: 26rem;
+    left: 2%; /* Ajusta la posición desde la izquierda según sea necesario */
+  }
+
+  #back-arrow-registro {
+    top: 30rem;
+  }
+
+  #login {
+    padding-top: 5rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+   }
+}
