@@ -30,7 +30,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <body>
 
   <header>
-    <a href="./index.php" class="logo"><img src="./assets/images/logoBlanco.png" width="24%"
+    <a href="./index.php" class="logo"><img src="./assets/images/logos/logoBlanco.png" width="24%"
         alt="Nacional Music Club"></a>
 
     <nav class="navigation">

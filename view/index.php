@@ -8,9 +8,6 @@ $resultado = "";
 if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     $login = $_SESSION['email'];
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +16,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./assets/images/favicons/N_simple.png" type="image/png">
     <title>Inicio | Nacional Music Club</title>
-    <link rel="icon" href="./assets/images/favicons/favicon.ico" type="image/png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="./assets/images/favicons/apple-touch-icon.png/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="./assets/images/favicons/apple-touch-icon.pngfavicon-16x16.png">
-    <link rel="manifest" href="./assets/images/favicons/apple-touch-icon.png/site.webmanifest">
-    <link rel="mask-icon" href="./assets/images/favicons/apple-touch-icon.png/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/header.css">
@@ -38,7 +25,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/cookies.css">
 
-    <script src="./assets/js/template_head.js"></script>
+
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
     <script src="./assets/js/index.js" type="application/javascript"></script>
     <script src="./assets/js/cookies.js" type="application/javascript"></script>
@@ -47,7 +34,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <body>
 
     <header>
-        <a href="./index.php" class="logo"><img src="./assets/images/logoBlanco.png" width="24%"
+        <a href="./index.php" class="logo"><img src="./assets/images/logos/logoBlanco.png" width="24%"
                 alt="Nacional Music Club"></a>
 
         <nav class="navigation">
@@ -62,7 +49,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     <div id="language-selector" class="hidden">
                         <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
                             <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
-                            <option id="en" class="" value="en"> 🇺🇸 US</option>
+                            <option id="en" class="" value="en"> 🇺🇸 EN</option>
                             <option id="it" class="" value="it"> 🇮🇹 IT</option>
                         </select>
                     </div>
@@ -104,6 +91,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             </ul>
         </nav>
     </header>
+
+    <script src="./assets/js/idioma.js" type="application/javascript"></script>
+
     <section class="video-container">
         <video width="100%" height="auto" autoplay loop muted disablepictureinpicture>
             <source src="./assets/videos/Main.mp4" type="video/mp4">
@@ -186,7 +176,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
                 <div class="media__body" data-traduccion="politica_cookies">
                     <p>Utilizamos cookies para ofrecerte la mejor experiencia en nuestra web.
-                        Para mas información visita nuestra <a href="cookies.html" data-traduccion="cookies"
+                        Para mas información visita nuestra <a href="./cookies.php" data-traduccion="cookies"
                             id="enlace_cookies">Pólitica de Cookies</a>
                     </p>
                 </div>
@@ -213,7 +203,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         <script src="./assets/js/template_footer.js"></script>
     </footer>
 
-    <script src="./assets/js/language.js" type="application/javascript"></script>
 </body>
 
 </html>

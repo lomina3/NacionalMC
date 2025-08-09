@@ -3,7 +3,7 @@ include_once('../controller/Conexion.php');
 if (!isset($_SESSION)) {
     session_start();
 }
-if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     $login = $_SESSION['email'];
 }
 
@@ -39,7 +39,7 @@ $pasado = $_GET['pasado'];
 
 <body>
 
-<header>
+    <header>
         <a href="./index.php" class="logo"><img src="./assets/images/logoBlanco.png" width="24%"
                 alt="Nacional Music Club"></a>
 

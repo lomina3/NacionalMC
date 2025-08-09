@@ -28,7 +28,7 @@ function cargarJSON(url, callback) {
   
   function cambiarIdioma(idioma) {
     // Ajusta la ruta según la ubicación de tus archivos JSON
-    var rutaJSON = './assets/languages/' + idioma + '.json';
+    var rutaJSON = './assets/languages' + idioma + '.json';
 
     cargarJSON(rutaJSON, function (traducciones) {
         // Aplica las traducciones a los elementos según su identificador

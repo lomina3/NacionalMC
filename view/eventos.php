@@ -1,7 +1,7 @@
 <?php
 include_once('../controller/Conexion.php');
 session_start();
-if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     $login = $_SESSION['email'];
 }
 ?>
