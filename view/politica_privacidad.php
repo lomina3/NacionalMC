@@ -163,9 +163,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
     </main>
 
-    <footer class="site-footer">
-        <script src="./assets/js/template_footer.js"></script>
-    </footer>
+    <footer id="site-footer" class="site-footer"></footer>
+    <script src="./assets/js/template_footer.js?v=2" defer></script>
+
 
 </body>
 
