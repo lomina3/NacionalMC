@@ -3,7 +3,7 @@ const footer = document.querySelector("footer");
 
 footer.innerHTML = `
 <footer class="site-footer">
-<img class="logo_n" src="../images/logos/N_simple.png" width="24%" alt="NacionalMC">
+<img class="logo_n" src="../images/favicons/N_simpleBlanca.png" width="24%" alt="NacionalMC">
 <div class="container">
     <div class="row1">
         <section class="footer-section">

@@ -16,7 +16,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="./assets/images/favicons/N_simple.png" type="image/png">
+    <link rel="icon" href="./assets/images/favicons/N_blanca.png" type="image/png">
     <title>Inicio | Nacional Music Club</title>
 
     <link rel="stylesheet" href="./assets/css/style.css">
