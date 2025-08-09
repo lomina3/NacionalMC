@@ -63,7 +63,7 @@ El proyecto sigue una estructura tipo MVC:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/lmn563/nacional.git
+   git clone https://github.com/lomina3/NacionalMC.git
    ```
 2. Coloca la carpeta del proyecto en `htdocs` (si usas XAMPP).
 3. Crea una base de datos en `phpMyAdmin` e importa el archivo `/model/nacional.sql`.

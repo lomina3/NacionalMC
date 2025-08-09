@@ -2,7 +2,7 @@
 
 include_once('../controller/Conexion.php');
 
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
 include("../controller/eventos.php");

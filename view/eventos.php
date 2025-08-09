@@ -97,7 +97,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
         }
         if ($resultado == 1) {
             ?>
-            <form action="../admin/Aeventosnuevo.html" accept-charset="UTF-8" method="post" autocomplete="on">
+            <form action="../admin/añadir_eventosAdmin.php" accept-charset="UTF-8" method="post" autocomplete="on">
                 <div class="button-box">
                     <button type="submit"
                         class="relative inline-flex px-5 py-3 overflow-hidden font-bold rounded-full group all-bg">

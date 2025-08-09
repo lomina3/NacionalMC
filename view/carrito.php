@@ -94,7 +94,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         <h1 class="tituloTicket">Nacional Music Club</h1>
         <div class="cabecera cf">
           <h1>Carrito</h1>
-          <a href="./eventos.html" class="continuar">Seguir comprando</a>
+          <a href="./eventos.php" class="continuar">Seguir comprando</a>
         </div>
         <div class="carrito">
           <ul class="cartWrap">
@@ -139,7 +139,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         <div class="subtotal cf">
           <ul>
             <li class="totalRow final"><span class="label">Total</span><span class="value">30.00€</span></li>
-            <li class="totalRow"><a href="#" class="btn continuar">Comprar</a></li>
+            <li class="totalRow"><a href="./pagoExitoso.php" class="btn continuar">Comprar</a></li>
           </ul>
         </div>
       </div>

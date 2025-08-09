@@ -5,18 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modificar Evento | Nacional ADMIN</title>
-    <link href="./assets/css/style_admin.css" rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,7 +30,7 @@
                 <li></li>
                 <li>
                     <div class="form">
-                        <form  action="../model/eventos.php" method="post">
+                        <form action="../model/eventos.php" method="post">
                             <div class="field-wrap">
                                 <label>Nombre de Evento</label>
                                 <input type="text" name="titulo" required>
@@ -74,16 +63,17 @@
 
                             <div class="field-wrap">
                                 <label>Tipo de Música</label>
-                                <input type="text" name="tipo" list="tipoEvento" placeholder="Escribir o seleccionar una opción">
-                                    <datalist id="tipoEvento">
-                                        <select id="tipoEvento">
-                                            <option value="">~ Añadir más tarde ~</option>
-                                            <option value="Reggaeton">Reggaeton</option>
-                                            <option value="Tecno">Tecno</option>
-                                        </select>
-                                    </datalist>
+                                <input type="text" name="tipo" list="tipoEvento"
+                                    placeholder="Escribir o seleccionar una opción">
+                                <datalist id="tipoEvento">
+                                    <select id="tipoEvento">
+                                        <option value="">~ Añadir más tarde ~</option>
+                                        <option value="Reggaeton">Reggaeton</option>
+                                        <option value="Tecno">Tecno</option>
+                                    </select>
+                                </datalist>
                             </div>
-                            
+
                             <div class="checkbox">
                                 <input type="checkbox" name="archivo">
                                 <label>Archivar</label>
@@ -105,7 +95,7 @@
                         <?php
                         $sql = "SELECT * FROM eventos";
                         $result = $conn->query($sql);
-                        
+
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<div>";
@@ -118,14 +108,10 @@
                             echo "No hay eventos disponibles.";
                         }
                         ?>
-                        
-
-
-
 
                         <h2><?php echo $titulo ?></h2>
                         <center>
-                            <img src="carpeta_imagenes/".$row['imagen'] alt= $row['titulo'] width="350px">
+                            <img src="carpeta_imagenes/" .$row['imagen'] alt=$row['titulo'] width="350px">
                         </center>
                         <p>$row['descripcion']
                             <br> $fecha $hora
@@ -142,12 +128,12 @@
     <footer class="footer">
         <div class="container">
             <nav class="navigation">
-            <ul>
-                <li><a href="Acontacto.html"><span class="material-symbols-outlined">call</span></a></li>
-                <li><a href="login.html"><span class="material-symbols-outlined">person</span></a></li>
-                <li><a href="#"><span class="material-symbols-outlined">public</span></a></li>
-            </ul>
-        </nav>
+                <ul>
+                    <li><a href="Acontacto.html"><span class="material-symbols-outlined">call</span></a></li>
+                    <li><a href="login.html"><span class="material-symbols-outlined">person</span></a></li>
+                    <li><a href="#"><span class="material-symbols-outlined">public</span></a></li>
+                </ul>
+            </nav>
             <p>en650</p>
         </div>
     </footer>
