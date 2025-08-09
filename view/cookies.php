@@ -27,7 +27,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <body>
 
     <header>
-        <script src="./assets/js/template_header.js"></script>
+        <script src="./assets/js/header.js"></script>
     </header>
 
     <main class="main">
@@ -87,7 +87,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     </main>
 
     <footer class="site-footer">
-        <script src="./assets/js/template_footer.js"></script>
+        <script src="./assets/js/footer.js"></script>
     </footer>
 
 </body>
