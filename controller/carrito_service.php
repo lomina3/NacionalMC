@@ -1,5 +1,4 @@
 <?php
-// controller/CarritoService.php
 include_once(__DIR__ . '/CarritoRepository.php');
 
 class CarritoService

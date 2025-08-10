@@ -1,6 +1,6 @@
 <?php
 
-include_once('datosConexion.php');
+include_once('datos_conexion.php');
 
 $mysqli = mysqli_connect($host, $user, $password, $database, $port);
 
