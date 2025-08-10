@@ -39,8 +39,9 @@ $pasado = $_GET['pasado'];
 
 <body>
 
-    <header class="site-header" id="site-header"></header>
-    <script src="./assets/js/header.js"></script>
+    <header class="site-header" id="site-header">
+        <?php include('./assets/templates/header.php'); ?>
+    </header>
 
     <div class="main-content">
 

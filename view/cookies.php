@@ -28,8 +28,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
 <body>
 
-    <header class="site-header" id="site-header"></header>
-    <script src="./assets/js/header.js"></script>
+    <header class="site-header" id="site-header">
+        <?php include('./assets/templates/header.php'); ?>
+    </header>
 
     <main class="main">
 
@@ -87,8 +88,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     </main>
 
-    <footer class="site-footer" id="site-footer"></footer>
-    <script src="./assets/js/footer.js"></script>
+    <footer class="site-footer" id="site-footer">
+        <?php include('./assets/templates/footer.php'); ?>
+    </footer>
 
 </body>
 

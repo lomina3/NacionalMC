@@ -29,7 +29,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 <body>
 
     <header>
-        <a href="../" class="logo"><img src="./assets/images/logoBlanco.png" width="24%" alt="Nacional Music Club"></a>
+        <a href="./eventosAdmin.php" class="logo"><img src="../assets/images/logos/logoBlanco.png" width="24%"
+                alt="Nacional Music Club"></a>
     </header>
 
     <main>
@@ -41,7 +42,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             if ($resultado == 1) {
 
                 ?>
-
 
                 <div class="container">
                     <h1 class="edit-event" data-traduccion="editar_evento">EDITAR EVENTO</h1>
