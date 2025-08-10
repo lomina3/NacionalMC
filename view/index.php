@@ -1,5 +1,5 @@
 <?php
-include_once('../controller/Conexion.php');
+include_once('../controller/conexion.php');
 session_start();
 
 $login = '';

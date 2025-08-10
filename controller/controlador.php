@@ -9,7 +9,7 @@ class db
 
     function __construct()
     {
-        include('DatosConexion.php');
+        include('datosConexion.php');
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;

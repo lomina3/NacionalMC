@@ -1,0 +1,48 @@
+services:
+  php-fpm:
+    build:
+      context: ./docker/php
+    container_name: nacionalmc_php
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html/view
+    env_file:
+      - .env
+    networks:
+      - nacionalmc-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nacionalmc_nginx
+    depends_on:
+      - php-fpm
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "5000:80"
+    networks:
+      - nacionalmc-network
+
+  mariadb:
+    image: mariadb:10.4
+    container_name: nacionalmc_mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./model/nacional.sql:/docker-entrypoint-initdb.d/nacional.sql:ro
+    ports:
+      - "3307:3306"
+    networks:
+      - nacionalmc-network
+
+volumes:
+  mariadb_data:
+
+networks:
+  nacionalmc-network:
+    driver: bridge

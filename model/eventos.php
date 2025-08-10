@@ -1,6 +1,6 @@
 <?php
 
-include_once('../controller/Conexion.php');
+include_once('../controller/conexion.php');
 
 if (!isset($_SESSION)) {
     session_start();

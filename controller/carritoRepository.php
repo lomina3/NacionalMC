@@ -2,7 +2,7 @@
 // controller/CarritoRepository.php
 if (session_status() === PHP_SESSION_NONE)
     session_start();
-include_once(__DIR__ . '/Conexion.php'); // debe exponer $mysqli
+include_once(__DIR__ . '/conexion.php'); // debe exponer $mysqli
 
 class CarritoRepository
 {

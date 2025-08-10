@@ -1,5 +1,5 @@
 <?php
-include_once('../controller/Conexion.php');
+include_once('../controller/conexion.php');
 session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
   $login = $_SESSION['email'];

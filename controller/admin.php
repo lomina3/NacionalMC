@@ -1,5 +1,5 @@
 <?php
-include('Conexion.php');
+include('conexion.php');
 
 function comprobacionAdmin($login, $contrasena) {
     global $mysqli;
