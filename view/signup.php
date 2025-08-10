@@ -31,7 +31,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                 Tu navegador no soporta el tag de video.
             </video>
 
-            <a href="./index.php" class="logo"><img src="./assets/images/N_simple.png" width="17%"
+            <a href="./index.php" class="logo"><img src="./assets/images/favicons/N_simpleBlanca.png" width="17%"
                     alt="Nacional Music Club"></a>
         </div>
 

@@ -1,3 +1,11 @@
+<?php
+include_once('../controller/Conexion.php');
+session_start();
+if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
+    $login = $_SESSION['email'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,138 +13,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modificar Evento | Nacional ADMIN</title>
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link rel="icon" href="./assets/images/favicons/N_blanca.png" type="image/png">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/header.css">
+    <link rel="stylesheet" href="./assets/css/contacto.css">
+    <link rel="stylesheet" href="./assets/css/aeventos.css">
+    <link rel="stylesheet" href="./assets/css/exito.css">
+
+    <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
+
+    <script src="./assets/js/idioma.js" type="application/javascript"></script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="container logo-nav-container">
-            <a href="../index.html" class="logo"> <img src="../assets/images/logotransparenteN.png" width="25%"
-                    alt="Nacional Music Club"></a>
-            <nav class="navigation">
-                <ul class="show">
-                    <li><a href="Aeventos.html"><span class="material-symbols-outlined">calendar_today</span></a></li>
-                    <li><a href="Afiestas_privadas.html"><span class="material-symbols-outlined">liquor</span></a></li>
-                </ul>
-            </nav>
-        </div>
+
+    <header>
+        <a href="../" class="logo"><img src="./assets/images/logoBlanco.png" width="24%" alt="Nacional Music Club"></a>
     </header>
 
-    <main class="main">
-        <div class="container">
-            <h1>EDITAR EVENTO</h1>
-            <ul>
-                <li></li>
-                <li></li>
-                <li>
-                    <div class="form">
-                        <form action="../model/eventos.php" method="post">
+    <main>
+        <?php
+        if (isset($_SESSION['email'])) {
+
+            // Verifica si no eses admin
+            $resultado = $_SESSION['admin'];
+            if ($resultado == 1) {
+
+                ?>
+
+
+                <div class="container">
+                    <h1 class="edit-event" data-traduccion="editar_evento">EDITAR EVENTO</h1>
+
+                    <form action="../model/Amodificareventos.php" method="post">
+
+                        <section class="casillas">
+
+                            <input type="hidden" name="idEventos" value="<?php echo $_GET['idEvento']; ?>">
+
+
                             <div class="field-wrap">
-                                <label>Nombre de Evento</label>
-                                <input type="text" name="titulo" required>
+                                <label data-traduccion="nombre_evento">Nombre de Evento</label>
+                                <input type="text" name="titulo"
+                                    value="<?php echo isset($_POST['titulo']) ? $_POST['titulo'] : ''; ?>">
                             </div>
 
                             <div class="field-wrap">
-                                <label>Descripción</label>
-                                <input type="text" name="descripcion" required>
+                                <label data-traduccion="descripcion">Descripción</label>
+                                <input type="text" name="descripcion"
+                                    value="<?php echo isset($_POST['descripcion']) ? $_POST['descripcion'] : ''; ?>">
+                            </div>
+
+                            <div class="time-container">
+                                <div class="field-wrap" id="day">
+                                    <label data-traduccion="fecha">Fecha</label>
+                                    <input type="date" name="fecha"
+                                        value="<?php echo isset($_POST['fecha']) ? $_POST['fecha'] : ''; ?>">
+                                </div>
+
+                                <div class="field-wrap" id="time">
+                                    <label data-traduccion="hora">Hora</label>
+                                    <input type="time" name="hora"
+                                        value="<?php echo isset($_POST['hora']) ? $_POST['hora'] : ''; ?>">
+                                </div>
                             </div>
 
                             <div class="field-wrap">
-                                <label>Fecha</label>
-                                <input type="date" name="fecha" required>
+                                <label data-traduccion="precio_entrada">Precio Entrada €</label>
+                                <input type="text" name="precio"
+                                    value="<?php echo isset($_POST['precio']) ? $_POST['precio'] : ''; ?>">
                             </div>
 
                             <div class="field-wrap">
-                                <label>Hora</label>
-                                <input type="time" name="hora" required>
+                                <label data-traduccion="foto_video">Foto o Video</label>
+                                <input type="text" name="foto"
+                                    value="<?php echo isset($_POST['foto']) ? $_POST['foto'] : ''; ?>">>
                             </div>
 
                             <div class="field-wrap">
-                                <label>Precio Entrada €</label>
-                                <input type="text" name="precio" required>
-                            </div>
-
-                            <div class="field-wrap">
-                                <label>Foto o Video</label>
-                                <input type="text" name="foto">
-                            </div>
-
-                            <div class="field-wrap">
-                                <label>Tipo de Música</label>
+                                <label data-traduccion="tipo_musica">Tipo de Música</label>
                                 <input type="text" name="tipo" list="tipoEvento"
                                     placeholder="Escribir o seleccionar una opción">
                                 <datalist id="tipoEvento">
                                     <select id="tipoEvento">
-                                        <option value="">~ Añadir más tarde ~</option>
+                                        <option value="" data-traduccion="anadir_mas_tarde">~ Añadir más tarde ~</option>
                                         <option value="Reggaeton">Reggaeton</option>
-                                        <option value="Tecno">Tecno</option>
+                                        <option value="Techno">Techno</option>
                                     </select>
                                 </datalist>
                             </div>
+                        </section>
 
-                            <div class="checkbox">
-                                <input type="checkbox" name="archivo">
-                                <label>Archivar</label>
-                            </div>
+                        <div class="checkbox">
+                            <input type="checkbox" name="archivo">
+                            <label data-traduccion="archivar">Archivar</label>
+                        </div>
 
-                            <center>
-                                <button type="submit" class="button button-block">Confirmar Modificaciones</button>
-                            </center>
-                        </form>
+                        <div class="button-box">
+                            <button type="submit"
+                                class="relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-full group all-bg button button-block">
+                                <span
+                                    class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-black opacity-[3%]"></span>
+                                <span
+                                    class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-black opacity-100 group-hover:-translate-x-8"></span>
+                                <span
+                                    class="relative w-full text-left text-blbg-black transition-colors duration-200 ease-in-out group-hover:text-gray-200"
+                                    data-traduccion="confirm_mod">Confirmar</span>
+                                <span class="absolute inset-0 border-2 border-blbg-black rounded-full"></span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <?php
+            } else {
+                echo '
+                    <div class="checkout-rojo">
+                    <h1 data-traduccion="mensaje_exitoso_2">No tienes permisos para acceder a este sitio.</h1>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                    <a href="../" data-traduccion="wip_back">Volver a la pagina principal</a>
                     </div>
-                    <br>
-                </li>
-                <li></li>
-                <li></li>
-                <li>
-                    <section>
-                        <h3>Vista Previa</h3>
-
-                        <?php
-                        $sql = "SELECT * FROM eventos";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<div>";
-                                echo "<img src='carpeta_imagenes/" . $row['imagen'] . "' alt='" . $row['titulo'] . "'>";
-                                echo "<h2>" . $row['titulo'] . "</h2>";
-                                echo "<p>" . $row['descripcion'] . "</p>";
-                                echo "</div>";
-                            }
-                        } else {
-                            echo "No hay eventos disponibles.";
-                        }
-                        ?>
-
-                        <h2><?php echo $titulo ?></h2>
-                        <center>
-                            <img src="carpeta_imagenes/" .$row['imagen'] alt=$row['titulo'] width="350px">
-                        </center>
-                        <p>$row['descripcion']
-                            <br> $fecha $hora
-                            <br> $precio
-                        </p>
-
-                    </section>
-                    <br>
-                </li>
-            </ul>
-        </div>
+                    ';
+            }
+        } else {
+            echo '
+                <div class="checkout-rojo">
+				<h1 data-traduccion="mensaje_exitoso_2">No tienes permisos para acceder a este sitio.</h1>
+          		<br>
+          		<br>
+          		<br>
+          		<br>
+                <a href="../" data-traduccion="wip_back">Volver a la pagina principal</a>
+                </div>
+                ';
+        }
+        ?>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <nav class="navigation">
-                <ul>
-                    <li><a href="Acontacto.html"><span class="material-symbols-outlined">call</span></a></li>
-                    <li><a href="login.html"><span class="material-symbols-outlined">person</span></a></li>
-                    <li><a href="#"><span class="material-symbols-outlined">public</span></a></li>
-                </ul>
-            </nav>
-            <p>en650</p>
-        </div>
-    </footer>
 </body>
 
 </html>
