@@ -10,21 +10,18 @@ $conocenos = "";
 $logoN = "";
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $diseno = new Diseno();
 
-    if($_SESSION['admin']=='1') { //ADMIN PAGINA DE MODIFICACIONES & REGISTROS NUEVOS
+    if ($_SESSION['admin'] == '1') { //ADMIN PAGINA DE MODIFICACIONES & REGISTROS NUEVOS
 
         $modExitosa = $diseno->validar($_POST);
-        
-        if($modExitosa !="")
-        {
+
+        if ($modExitosa != "") {
             echo "<div style='text-align:center;font-size:12px;color:white;background-color:grey;'>";
             echo $modExitosa;
             echo "</div>";
-        }else
-        {
+        } else {
             header('Location: modExitosa.html');
             die;
         }
