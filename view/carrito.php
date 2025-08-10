@@ -15,7 +15,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Carrito | Nacional Music Club</title>
-  <link rel="icon" href="./assets/images/favicons/N_blanca.png" type="image/png">
+  <link rel="icon" href="./assets/images/favicons/N_simpleBlanca.png" type="image/png">
 
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/header.css">
