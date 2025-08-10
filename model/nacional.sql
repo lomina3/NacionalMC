@@ -7,7 +7,8 @@
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
-CREATE DATABASE IF NOT EXISTS nacional;
+DROP DATABASE IF EXISTS nacional;
+CREATE DATABASE nacional;
 USE nacional;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -72,7 +73,7 @@ CREATE TABLE `eventos` (
   `descripcion` longtext NOT NULL,
   `precio` varchar(45) NOT NULL,
   `tipoEvento` enum('Reggaeton','Tecno') DEFAULT NULL,
-  `foto` longtext NOT NULL DEFAULT '\'logoDoradoCustom.png\''
+  `foto` longtext  -- Cambiado: sin valor por defecto
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
@@ -170,14 +171,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`correoElectronico`, `nombre`, `apellidos`, `hashContrasena`, `fechaNacimiento`, `userAdmin`) VALUES
-('alonsorodriguez2003@gmail.com', 'Daniel', 'Alonso Rodriguez', 'Nacional23', '2003-01-01', 1),
+INSERT INTO usuario (correoElectronico, nombre, apellidos, hashContrasena, fechaNacimiento, userAdmin) VALUES
 ('cliente@cliente.com', 'Fulanito', 'Fernandez', 'Nacional23', '2003-01-01', 0),
-('en650@inlumine.ual.es', 'Emily', 'Nolan', 'Nacional23', '2003-01-01', 1),
-('ilm402@inlumine.ual.es', 'Nacho', 'Lopez Miralles', 'Nacional23', '2003-01-01', 1),
-('ilm810@inlumine.ual.es', 'Israel', 'Lopez Miralles', 'Nacional23', '2003-01-01', 1),
-('pmg843@inlumine.ual.es', 'Pablo', 'Martinez Galvez', 'Nacional23', '2003-01-01', 1),
-('sgg181@inlumine.ual.es', 'Sergio', 'Guerrero Gonzalez', 'Nacional23', '2003-01-01', 1);
+('dcc023@inlumine.ual.es', 'Diego', 'Castañeda', 'Nacional23', '2003-01-01', 1),
+('ilm402@inlumine.ual.es', 'Nacho', 'Lopez Miralles', 'Nacional23', '2003-01-01', 1);
 
 --
 -- Índices para tablas volcadas

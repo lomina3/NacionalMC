@@ -199,8 +199,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             <a href="#principio"><i class="fa-solid fa-angle-up" id="flecha_up"></i></a>
     </main>
 
-    <footer id="site-footer" class="site-footer"></footer>
-    <script src="./assets/js/template_footer.js?v=2" defer></script>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="./assets/js/footer.js"></script>
 
 </body>
 

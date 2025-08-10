@@ -13,7 +13,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Registro | Nacional Music Club</title>
-    <link rel="icon" href="./assets/images/N_simple.png" type="image/png">
+    <link rel="icon" href="./assets/images/favicons/N_simpleBlanca.png" type="image/png">
 
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link href="./assets/css/form.css" rel="stylesheet" />
@@ -31,7 +31,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                 Tu navegador no soporta el tag de video.
             </video>
 
-            <a href="./index.php" class="logo"><img src="./assets/images/N_simple.png" width="17%"
+            <a href="./index.php" class="logo"><img src="./assets/images/favicons/N_simpleBlanca.png" width="17%"
                     alt="Nacional Music Club"></a>
         </div>
 

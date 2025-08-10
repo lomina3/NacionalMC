@@ -3,7 +3,7 @@ const header = document.querySelector("header");
 
 header.innerHTML = `
 <header>
-<a href="./index.php" class="logo"><img src="../images/logos/logoBlanco.png" width="24%"
+<a href="./index.php" class="logo"><img src="./assets/images/logos/logoBlanco.png" width="24%"
                 alt="Nacional Music Club"></a>
 
         <nav class="navigation">

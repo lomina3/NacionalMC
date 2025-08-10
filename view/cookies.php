@@ -21,14 +21,15 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <link rel="stylesheet" href="./assets/css/info.css">
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
+
     <script src="./assets/js/idioma.js" type="application/javascript"></script>
+
 </head>
 
 <body>
 
-    <header>
-        <script src="./assets/js/template_header.js"></script>
-    </header>
+    <header class="site-header" id="site-header"></header>
+    <script src="./assets/js/header.js"></script>
 
     <main class="main">
 
@@ -86,9 +87,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     </main>
 
-    <footer class="site-footer">
-        <script src="./assets/js/template_footer.js"></script>
-    </footer>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="./assets/js/footer.js"></script>
 
 </body>
 
