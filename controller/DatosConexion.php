@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = "";
+$password = "root";
 $database = "nacional";
-3306          // Puerto
-?>
+3308          // Puerto
+    ?>
