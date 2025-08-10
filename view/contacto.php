@@ -29,8 +29,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
 <body>
 
-    <header class="site-header" id="site-header"></header>
-    <script src="./assets/js/header.js"></script>
+    <header class="site-header" id="site-header">
+        <?php include('./assets/templates/header.php'); ?>
+    </header>
 
     <section class="video-container">
         <video width="100%" height="auto" autoplay loop muted disablepictureinpicture>
@@ -140,8 +141,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
     </main>
 
-    <footer class="site-footer" id="site-footer"></footer>
-    <script src="./assets/js/footer.js"></script>
+    <footer class="site-footer" id="site-footer">
+        <?php include('./assets/templates/footer.php'); ?>
+    </footer>
 
 </body>
 

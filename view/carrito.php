@@ -27,8 +27,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
 <body>
 
-  <header class="site-header" id="site-header"></header>
-  <script src="./assets/js/header.js"></script>
+  <header class="site-header" id="site-header">
+    <?php include('./assets/templates/header.php'); ?>
+  </header>
 
   <main class="main">
 
