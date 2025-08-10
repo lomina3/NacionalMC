@@ -1,6 +1,6 @@
 <?php
 
-include_once ('controlador.php');
+include_once('controlador.php');
 include("./controller/contacto.php");
 
 $mensaje = "";
@@ -10,36 +10,31 @@ $telefono = "";
 $correo = "";
 
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $contacto = new Contacto();
 
-    if($_SESSION['admin']=='1') { //ADMIN PAGINA DE MODIFICACIONES
+    if ($_SESSION['admin'] == '1') { //ADMIN PAGINA DE MODIFICACIONES
 
         $modExitosa = $contacto->validar($_POST);
 
-        if($modExitosa !="")
-        {
+        if ($modExitosa != "") {
             echo "<div style='text-align:center;font-size:12px;color:white; background-color:gey;'>";
             echo $modExitosa;
             echo "</div>";
-        }else
-        {
+        } else {
             header('Location: modExitosa.html');
             die;
         }
 
-    }else{ //FORMULARIO CONTACTO
+    } else { //FORMULARIO CONTACTO
 
         $mensajeEnviado = $contacto->contactar($_POST);
 
-        if($mensajeEnviado !="")
-        {
+        if ($mensajeEnviado != "") {
             echo "<div style='text-align:center;font-size:12px;color:white; background-color:gey;'>";
             echo $mensajeEnviado;
             echo "</div>";
-        }else
-        {
+        } else {
             header('Location: mensajeExitoso.html');
             die;
         }
