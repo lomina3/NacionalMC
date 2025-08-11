@@ -75,7 +75,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             </p>
             <h2>5. Privacidad</h2>
             <p>
-                Nuestra <a href="./politica_privacidad.html" id="enlace">política de privacidad</a> describe cómo
+                Nuestra <a href="./politica_privacidad.php" id="enlace">política de privacidad</a> describe cómo
                 recopilamos, utilizamos y compartimos la información. Al utilizar nuestros servicios, el usuario acepta
                 las prácticas descritas en nuestra Política de Privacidad.
             </p>
