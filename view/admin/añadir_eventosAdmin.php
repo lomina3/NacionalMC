@@ -1,3 +1,11 @@
+<?php
+if (!isset($_SESSION)) { session_start(); }
+require_once('../../controller/admin.php');
+if (!isset($_SESSION['email']) || !isset($_SESSION['contrasena']) || comprobacionAdmin($_SESSION['email'], $_SESSION['contrasena']) != 1) {
+    header('Location: ../login.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,18 +14,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nuevo Evento | Nacional ADMIN</title>
     <link href="../assets/css/style.css" rel="stylesheet">
+<script src="../assets/js/idioma.js" type="application/javascript"></script>
 </head>
 
 <body>
     <header class="header">
         <div class="container logo-nav-container">
-            <a href="./index.php" class="logo"> <img src="./assets/images/logotransparenteN.png" width="25%"
+            <a href="../index.php" class="logo"> <img src="../assets/images/logotransparenteN.png" width="25%"
                     alt="Nacional Music Club"></a>
             <nav class="navigation">
                 <ul class="show">
                     <li><a href="./eventosAdmin.php"><span class="material-symbols-outlined">calendar_today</span></a>
                     </li>
-                    <li><a href="Afiestas_privadas.html"><span class="material-symbols-outlined">liquor</span></a></li>
+                    <li><a href="añadir_eventosAdmin.php"><span class="material-symbols-outlined">liquor</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -102,8 +111,8 @@
         <div class="container">
             <nav class="navigation">
                 <ul>
-                    <li><a href="Acontacto.html"><span class="material-symbols-outlined">call</span></a></li>
-                    <li><a href="login.html"><span class="material-symbols-outlined">person</span></a></li>
+                    <li><a href="mod_eventosAdmin.php"><span class="material-symbols-outlined">call</span></a></li>
+                    <li><a href="../login.php"><span class="material-symbols-outlined">person</span></a></li>
                     <li><a href="#"><span class="material-symbols-outlined">public</span></a></li>
                 </ul>
             </nav>

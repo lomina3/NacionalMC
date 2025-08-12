@@ -1,4 +1,12 @@
 <?php
+if (!isset($_SESSION)) { session_start(); }
+require_once('../../controller/admin.php');
+if (!isset($_SESSION['email']) || !isset($_SESSION['contrasena']) || comprobacionAdmin($_SESSION['email'], $_SESSION['contrasena']) != 1) {
+    header('Location: ../login.php');
+    exit;
+}
+?>
+<?php
 include_once('../controller/Conexion.php');
 session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
@@ -13,24 +21,24 @@ if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Eventos | Nacional Music Club</title>
-    <link rel="icon" href="./assets/images/favicons/favicon.ico" type="image/png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" href="../assets/images/favicons/favicon.ico" type="image/png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="./assets/images/favicons/apple-touch-icon.png/favicon-32x32.png">
+        href="../assets/images/favicons/apple-touch-icon.png/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="./assets/images/favicons/apple-touch-icon.pngfavicon-16x16.png">
-    <link rel="manifest" href="./assets/images/favicons/apple-touch-icon.png/site.webmanifest">
-    <link rel="mask-icon" href="./assets/images/favicons/apple-touch-icon.png/safari-pinned-tab.svg" color="#5bbad5">
+        href="../assets/images/favicons/apple-touch-icon.pngfavicon-16x16.png">
+    <link rel="manifest" href="../assets/images/favicons/apple-touch-icon.png/site.webmanifest">
+    <link rel="mask-icon" href="../assets/images/favicons/apple-touch-icon.png/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/header.css">
-    <link rel="stylesheet" href="./assets/css/exito.css">
-    <link rel="stylesheet" href="./assets/css/event.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/exito.css">
+    <link rel="stylesheet" href="../assets/css/event.css">
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/idioma.js" type="application/javascript"></script>
+    <script src="../assets/js/idioma.js" type="application/javascript"></script>
 </head>
 
 <body>

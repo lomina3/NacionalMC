@@ -1,4 +1,12 @@
 <?php
+if (!isset($_SESSION)) { session_start(); }
+require_once('../../controller/admin.php');
+if (!isset($_SESSION['email']) || !isset($_SESSION['contrasena']) || comprobacionAdmin($_SESSION['email'], $_SESSION['contrasena']) != 1) {
+    header('Location: ../login.php');
+    exit;
+}
+?>
+<?php
 include_once('../controller/Conexion.php');
 session_start();
 if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
@@ -13,17 +21,17 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modificar Evento | Nacional ADMIN</title>
-    <link rel="icon" href="./assets/images/favicons/N_blanca.png" type="image/png">
+    <link rel="icon" href="../assets/images/favicons/N_blanca.png" type="image/png">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/header.css">
-    <link rel="stylesheet" href="./assets/css/contacto.css">
-    <link rel="stylesheet" href="./assets/css/aeventos.css">
-    <link rel="stylesheet" href="./assets/css/exito.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/contacto.css">
+    <link rel="stylesheet" href="../assets/css/aeventos.css">
+    <link rel="stylesheet" href="../assets/css/exito.css">
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
 
-    <script src="./assets/js/idioma.js" type="application/javascript"></script>
+    <script src="../assets/js/idioma.js" type="application/javascript"></script>
 </head>
 
 <body>

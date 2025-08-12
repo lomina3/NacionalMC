@@ -78,10 +78,11 @@ function aplicarTraducciones(dic) {
 function cambiarIdioma(idioma) {
   if (NMC_SUPPORTED.indexOf(idioma) === -1) idioma = NMC_DEFAULT;
 
-  // Detectar la ruta base hasta /view
-  var m = location.pathname.match(/^(.*\/view)\//);
-  var base = m ? m[1] : '';
-  var rutaJSON = base + '/assets/languages/' + idioma + '.json';
+  // Detectar la ruta base hasta /view (robusto para subcarpetas como /view/admin)
+  var path = location.pathname;
+  var idx = path.indexOf('/view/');
+  var base = idx !== -1 ? path.slice(0, idx + '/view/'.length) : '/';
+  var rutaJSON = base + 'assets/languages/' + idioma + '.json';
 
   cargarJSON(
     rutaJSON,
