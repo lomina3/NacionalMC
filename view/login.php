@@ -15,10 +15,12 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <title> Iniciar Sesión | Nacional Music Club</title>
     <link rel="icon" href="./assets/images/favicons/N_blanca.png" type="image/png">
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/form.css" rel="stylesheet" />
+    <link href="./assets/css/language.css" rel="stylesheet">
 
     <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/idioma.js" type="application/javascript"></script>
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
 </head>
@@ -41,9 +43,26 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
         <div class="right-section">
 
+        <div class="arrow-world">
             <ul class="back-arrow" id="login">
                 <li><a class="back" href="./index.php"><i class="fa-solid fa-angle-left"></i></a></li>
             </ul>
+
+            <li class="language-position">
+                <div id="language-selector" class="hidden">
+                    <select id="list" class="language-select">
+                        <option id="es" value="es" selected> 🇪🇸 ES</option>
+                        <option id="en" value="en"> 🇺🇸 US</option>
+                        <option id="it" value="it"> 🇮🇹 IT</option>
+                    </select>
+                </div>
+        
+                <!-- Agrega el icono para mostrar/ocultar el selector -->
+                <div id="language-icon" onclick="toggleLanguageSelector()">
+                    <i class="fa-solid fa-earth-europe"></i>
+                </div>
+            </li>
+        </div>
 
             <form action="../model/login.php" accept-charset="UTF-8" method="post" autocomplete="on">
 

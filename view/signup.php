@@ -38,12 +38,13 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
 
         <div class="right-section">
-            <div class="back-arrow">
+
+        <div class="arrow-world">
             <ul class="back-arrow" id="login">
                 <li><a class="back" href="../"><i class="fa-solid fa-angle-left"></i></a></li>
             </ul>
-            </div>
-            <li>
+
+            <li class="language-position">
                 <div id="language-selector" class="hidden">
                     <select id="list" class="language-select">
                         <option id="es" value="es" selected> 🇪🇸 ES</option>
@@ -57,7 +58,8 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     <i class="fa-solid fa-earth-europe"></i>
                 </div>
             </li>
-            
+        </div>   
+
             <form id="signup" action="../model/signup.php" accept-charset="UTF-8" method="post" autocomplete="on">
             <h2 class="form_title" data-traduccion="bienvenido">¡Bienvenido!</h2>
 
@@ -132,7 +134,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     </button>
                 </div>
 
-                <p class="login" data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta? <a href="login" data-traduccion="inicia_sesion">Inicia
+                <p class="login" data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta? <a href="./login.php" data-traduccion="inicia_sesion">Inicia
                         sesión</a></p>
 
             </form>
