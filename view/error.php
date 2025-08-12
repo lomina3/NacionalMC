@@ -21,12 +21,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
 <body>
 
-    <div class="error-section">
-        <div class="error-container">
-            <h1 class="error-title">Error 404</h1>
-            <p class="error-message">Lo sentimos, la página que estás buscando no existe.</p>
-            <p class="back-home" id="Volver">Vuelve a la <a href="./index.php">página principal</a></p>
-        </div>
+     <div class="error-container">
+        <img src="view/assets/images/logoDoradoCustom.png" width="17%" alt="Nacional Music Club">
+        <h1 class="error-title">Error 404</h1>
+        <p class="error-message" data-traduccion="error_message">Lo sentimos, la página que estás buscando no existe.</p>
+            <p class="back-home" id="Volver" data-traduccion="error_back">Vuelve a la <a href="../" data-traduccion="error_back_link">página principal</a></p>
     </div>
 
 </body>

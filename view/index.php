@@ -128,7 +128,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                             <div class="evento-texto">' . $descripcion . '</div>
                             <span class="evento-fecha"> ' . $dia . ' ' . $mes . ' 2023 - ' . $hora . ':00</span>
 
-                            <a href="./eventos.php?id=' . $idEvento . '">
+                            <a href="./eventos.php">
                             <button type="button"
                                 class="relative inline-flex items-center px-12 py-3 overflow-hidden text-lg font-medium text-indigo-600 border-2 border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
                                 <span

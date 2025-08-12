@@ -24,7 +24,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <script src="./assets/js/idioma.js" type="application/javascript"></script>
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -44,11 +43,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
     </section>
 
-    <main>
+        <main>
 
         <div class="content" id="content">
-            <h1 id="terms-title">Sobre Nosotros</h1>
-            <p class="sobre-nosotros">
+            <h1 id="terms-title" data-traduccion="sobre_nosotros">Sobre Nosotros</h1>
+            <p class="sobre-nosotros" data-traduccion="sobre_nosotros_desc">
                 ¡Bienvenido a Nacional Music Club! Fundado con pasión y visión por Grupo Tendencia en 2018, somos una
                 vibrante experiencia musical en el corazón de la ciudad.
                 <br>
@@ -69,11 +68,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
 
         <div class="content" id="content">
-            <h1>Contacto</h1>
+            <h1 data-traduccion="contacto">Contacto</h1>
 
             <section id="formulario">
                 <!-- Formulario de contacto -->
-                <h3 class="text-form">¿Tienes alguna pregunta o solicitud especial? Estaremos encantados de
+                <h3 class="text-form" data-traduccion="cont_titulo">¿Tienes alguna pregunta o solicitud especial? Estaremos encantados de
                     responderlas.</h3>
                 <form class="contacto-form" action="../model/contacto.php" method="post">
                     <div class="name-container">

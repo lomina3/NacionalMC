@@ -17,16 +17,18 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link href="./assets/css/form.css" rel="stylesheet" />
-
-    <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
+    <link href="./assets/css/language.css" rel="stylesheet">
 
     <script src="./assets/js/form.js"></script>
+    <script src="./assets/js/idioma.js" type="application/javascript"></script>
+
+    <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="left-section">
-            <video autoplay muted loop>
+            <video autoplay muted loop playsinline>
                 <source src="./assets/videos/Anuncio.mp4" type="video/mp4" data-traduccion="tag_video">
                 Tu navegador no soporta el tag de video.
             </video>
@@ -36,12 +38,28 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
 
         <div class="right-section">
-            <ul class="back-arrow">
-                <li><a class="back" href="./index.php"><i class="fa-solid fa-angle-left"></i></a></li>
+            <div class="back-arrow">
+            <ul class="back-arrow" id="login">
+                <li><a class="back" href="../"><i class="fa-solid fa-angle-left"></i></a></li>
             </ul>
+            </div>
+            <li>
+                <div id="language-selector" class="hidden">
+                    <select id="list" class="language-select">
+                        <option id="es" value="es" selected> 🇪🇸 ES</option>
+                        <option id="en" value="en"> 🇺🇸 US</option>
+                        <option id="it" value="it"> 🇮🇹 IT</option>
+                    </select>
+                </div>
 
+                <!-- Agrega el icono para mostrar/ocultar el selector -->
+                <div id="language-icon" onclick="toggleLanguageSelector()">
+                    <i class="fa-solid fa-earth-europe"></i>
+                </div>
+            </li>
+            
             <form id="signup" action="../model/signup.php" accept-charset="UTF-8" method="post" autocomplete="on">
-                <h2 class="form_title" data-traduccion="bienvenido">Bienvenido!</h2>
+            <h2 class="form_title" data-traduccion="bienvenido">¡Bienvenido!</h2>
 
                 <section class="casillas">
                     <div class="name-container">
@@ -86,11 +104,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
                     <div class="checkbox-container">
                         <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                        <label for="termsCheckbox" class="fontLabel">
-                            Acepto los <a class="enlace" href="./terms.html" target="_blank"
+                        <label for="termsCheckbox" class="fontLabel" data-traduccion="acepto">
+                            Acepto los <a class="enlace" href="./terms" target="_blank"
                                 data-traduccion="terminos_enlace">términos y
                                 condiciones</a>
-                            y la <a class="enlace" href="./politica_privacidad.html" target="_blank"
+                            y la <a class="enlace" href="./politica_privacidad" target="_blank"
                                 data-traduccion="privacidad_enlace">política
                                 de privacidad</a>
                         </label>
@@ -114,7 +132,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     </button>
                 </div>
 
-                <p class="login" data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta? <a href="./login.php">Inicia
+                <p class="login" data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta? <a href="login" data-traduccion="inicia_sesion">Inicia
                         sesión</a></p>
 
             </form>

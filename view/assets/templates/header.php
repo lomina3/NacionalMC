@@ -12,10 +12,10 @@
                 ?>
             <li>
                 <div id="language-selector" class="hidden">
-                    <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
-                        <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
-                        <option id="en" class="" value="en"> 🇺🇸 US</option>
-                        <option id="it" class="" value="it"> 🇮🇹 IT</option>
+                    <select id="list" class="language-select">
+                        <option id="es" value="es" selected> 🇪🇸 ES</option>
+                        <option id="en" value="en"> 🇺🇸 US</option>
+                        <option id="it" value="it"> 🇮🇹 IT</option>
                     </select>
                 </div>
 

@@ -28,61 +28,18 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
 </head>
 
 <body>
-  <header>
-    <a href="./index.php" class="logo"><img src="./assets/images/logos/logoBlanco.png" width="24%"
-        alt="Nacional Music Club"></a>
 
-    <nav class="navigation">
-      <ul class="show">
-        <?php if (!isset($_SESSION['email'])): ?>
-          <li><a href="./login.php"><i class="fa-solid fa-user"></i></a></li>
-        <?php endif; ?>
-        <li>
-          <div id="language-selector" class="hidden">
-            <select id="list" class="language-select" onchange="cambiarIdioma(this.value)">
-              <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
-              <option id="en" class="" value="en"> 🇺🇸 US</option>
-              <option id="it" class="" value="it"> 🇮🇹 IT</option>
-            </select>
-          </div>
-          <div id="language-icon" onclick="toggleLanguageSelector()">
-            <i class="fa-solid fa-earth-europe"></i>
-          </div>
-        </li>
-        <li><i id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-              <div class="elements">
-                <li><i class="fa-solid fa-ticket"></i><a data-traduccion="eventos" href="./eventos.php">Eventos</a></li>
-                <li><i class="fa-solid fa-champagne-glasses"></i><a data-traduccion="fiestas_privadas"
-                    href="./fiestas_privadas.php">Fiestas Privadas</a></li>
-                <li><i class="fa-solid fa-cart-shopping"></i><a data-traduccion="carrito"
-                    href="./carrito.php">Carrito</a></li>
-                <li><i class="fa-solid fa-phone"></i><a data-traduccion="contactanos"
-                    href="./contacto.php">Contáctanos</a></li>
-
-                <?php if (isset($_SESSION['email'])): ?>
-                  <li><i class="fa-solid fa-right-from-bracket"></i><a id="logoutButton" data-traduccion="cerrar_sesion"
-                      href="../model/logout.php" onclick="cerrarSesion()">Cerrar Sesión</a></li>
-                <?php endif; ?>
-              </div>
-            </ul>
-          </i>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <header class="site-header" id="site-header">
+        <?php include('./assets/templates/header.php'); ?>
+    </header>
 
   <main class="main">
     <div class="tarjeta">
       <div class="wrap cf">
         <h1 class="tituloTicket">Nacional Music Club</h1>
         <div class="cabecera cf">
-          <h1>Carrito</h1>
-          <a href="./eventos.php" class="continuar">Seguir comprando</a>
+          <h1 data-traduccion="carrito">Carrito</h1>
+          <a href="./eventos.php" class="continuar" data-traduccion="seguir_comprando"></a>
         </div>
 
         <div class="carrito">
@@ -91,7 +48,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
             $total = 0.0;
 
             if (empty($actual)) {
-              echo '<li class="items"><div class="infoWrap"><p>Tu carrito está vacío</p></div></li>';
+              echo '<li class="items"><div class="infoWrap"><p data-traduccion="cart_empty">Tu carrito está vacío</p></div></li>';
             } else {
               foreach ($actual as $info) {
                 $titulo = htmlspecialchars($info[0]);
@@ -130,7 +87,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
         <div class="subtotal cf">
           <ul>
             <li class="totalRow final">
-              <span class="label">Total</span>
+               <span class="label" data-traduccion="total">Total</span>
               <span class="value"><?= number_format($total, 2, ',', '.') . ' €' ?></span>
             </li>
             <li class="totalRow">
@@ -141,7 +98,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
                   <button class="btn continuar" disabled>Comprar</button>
                 <?php endif; ?>
               <?php else: ?>
-                <p>Por favor, iniciar sesión para continuar</p>
+                <p data-traduccion="login2buy">Por favor, iniciar sesión para continuar</p>
               <?php endif; ?>
             </li>
           </ul>

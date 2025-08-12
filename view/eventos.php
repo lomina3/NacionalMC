@@ -21,8 +21,9 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <link rel="stylesheet" href="./assets/css/event.css">
     <link rel="stylesheet" href="./assets/css/contacto.css">
 
-    <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
     <script src="./assets/js/idioma.js" type="application/javascript"></script>
+    
+    <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
