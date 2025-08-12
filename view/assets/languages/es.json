@@ -17,7 +17,6 @@
   "politica_cookies_link": "Política de Cookies",
   "aceptar_cookies": "Aceptar y cerrar",
 
-
   "tag_video": "Tu navegador no soporta el tag de video.",
   "elem_video": "Tu navegador no soporta el elemento de video.",
   "bienvenido": "¡Bienvenido!",
@@ -30,7 +29,6 @@
   "no_tienes_cuenta": "¿No tienes cuenta?",
   "inicia_sesion": "Inicia Sesión",
 
-
   "carrito_exitoso": "Carrito:",
   "total_exitoso": "Total",
   "ticket_footer_1": "Revisa tu correo electrónico para recibir la confirmación de compra.",
@@ -38,10 +36,8 @@
   "ticket_footer_2_link": "aquí.",
   "ticket_footer_3": "¡Gracias por elegirnos!",
 
-
   "proximos_eventos": "Próximos Eventos",
   "eventos_pasados": "Eventos Pasados",
-
 
   "entradas_titulo": "ENTRADAS",
   "elegido_evento": "Has elegido el evento ",
@@ -53,7 +49,6 @@
   "tc_link": "términos y condiciones",
   "total": "Total:",
   "confirm_pago": "Confirmar Pago",
-
 
   "politica_privacidad_titulo": "POLÍTICAS DE PRIVACIDAD",
   "politica_privacidad_0": "Bienvenido/a a Nacional Music Club. Entendemos la importancia de la privacidad y nos comprometemos a proteger la información personal que compartes con nosotros. Esta Política de Privacidad describe cómo recopilamos, utilizamos y compartimos tu información cuando visitas Nacional Music Club y/o utilizas nuestros servicios.",
@@ -80,7 +75,6 @@
   "politica_privacidad_subtitulo6": "6. Cambios en la Política de Privacidad",
   "politica_privacidad_6": "Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Te recomendamos revisar periódicamente esta página para estar al tanto de cualquier cambio.",
 
-
   "cookies_titulo": "AVISO DE COOKIES",
   "cookies_1_subtitulo": "1. Introducción",
   "cookies_1": "Bienvenido a Nacional Music Club. Esta Política de Cookies explica cómo utilizamos cookies y tecnologías similares en nuestro sitio web.",
@@ -101,7 +95,6 @@
   "cookies_7": "Si tienes preguntas sobre nuestra Política de Cookies, por favor contáctanos a través de este ",
   "cookies_7_link": "enlace",
   "cookies_fecha_ultima": "Fecha de última actualización: 13 de enero de 2024",
-
 
   "tc_titulo": "TÉRMINOS Y CONDICIONES",
   "tc_0": "Bienvenido/a a Nacional Music Club. Antes de utilizar nuestros servicios, por favor, lee detenidamente los siguientes términos y condiciones. Al acceder y utilizar Nacional Music Club, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguna parte de estos términos, te instamos a que no utilices nuestros servicios.",
@@ -126,14 +119,16 @@
   "tc_7": "El uso de Nacional Music Club es bajo la responsabilidad del usuario. No garantizamos que el servicio sea ininterrumpido, seguro o libre de errores.",
   "tc_summary": "Estos términos y condiciones están sujetos a cambios, y cualquier modificación será publicada en el sitio web. El usuario se compromete a revisar periódicamente los términos y condiciones actualizados. El acceso y uso continuado de Nacional Music Club después de dichas modificaciones constituyen la aceptación de los nuevos términos y condiciones.",
 
-
   "wip_title": "¡Ups! Página en Construcción",
   "wip_message": "Estamos trabajando en esta sección. Pronto estará disponible.",
   "wip_back": "Volver a la página principal",
 
-
   "error_message": "Lo sentimos, la página que estás buscando no existe.",
   "error_back": "Vuelve a la ",
-  "error_back_link": "página principal"
+  "error_back_link": "página principal",
+
+  "anadir_evento": "Añadir Evento",
+  "reggaeton": "Reggaeton",
+  "tecno": "Tecno",
+  "eventos_especiales": "Eventos Especiales"
 }
-  

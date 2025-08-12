@@ -17,7 +17,6 @@
   "politica_cookies_link": "Cookie Policy",
   "aceptar_cookies": "Accept and close",
 
-
   "tag_video": "Your browser does not support the video tag.",
   "elem_video": "Your browser does not support the video element.",
   "bienvenido": "Welcome!",
@@ -30,7 +29,6 @@
   "no_tienes_cuenta": "You don't have an account?",
   "inicia_sesion": "Log in",
 
-
   "carrito_exitoso": "Cart:",
   "total_exitoso": "Total",
   "ticket_footer_1": "Check your email to receive your purchase confirmation.",
@@ -38,10 +36,8 @@
   "ticket_footer_2_link": "here.",
   "ticket_footer_3": "Thank you for choosing us!",
 
-
   "proximos_eventos": "Next Events",
   "eventos_pasados": "Past Events",
-
 
   "entradas_titulo": "TICKETS",
   "elegido_evento": "You have chosen the event ",
@@ -53,7 +49,6 @@
   "tc_link": "terms and conditions",
   "total": "Total:",
   "confirm_pago": "Confirm Payment",
-
 
   "politica_privacidad_titulo": "PRIVACY POLICY",
   "politica_privacidad_0": "Welcome to Nacional Music Club. We understand the importance of privacy and are committed to protecting the personal information you share with us. This Privacy Policy describes how we collect, use, and share your information when you visit Nacional Music Club and/or use our services.",
@@ -80,7 +75,6 @@
   "politica_privacidad_subtitulo6": "6. Changes to the Privacy Policy",
   "politica_privacidad_6": "We reserve the right to update this Privacy Policy at any time. We recommend checking this page periodically to stay informed of any changes.",
 
-
   "cookies_titulo": "COOKIE NOTICE",
   "cookies_1_subtitulo": "1. Introduction",
   "cookies_1": "Welcome to Nacional Music Club. This Cookie Policy explains how we use cookies and similar technologies on our website.",
@@ -101,7 +95,6 @@
   "cookies_7": "If you have questions about our Cookie Policy, please contact us through this ",
   "cookies_7_link": "link",
   "cookies_fecha_ultima": "Last Updated: January 13, 2024",
-
 
   "tc_titulo": "TERMS AND CONDITIONS",
   "tc_0": "Welcome to Nacional Music Club. Before using our services, please carefully read the following terms and conditions. By accessing and using Nacional Music Club, you agree to comply with these terms and conditions. If you do not agree with any part of these terms, we urge you not to use our services.",
@@ -126,14 +119,16 @@
   "tc_7": "The use of Nacional Music Club is at the user's own risk. We do not guarantee that the service will be uninterrupted, secure, or error-free.",
   "tc_summary": "These terms and conditions are subject to change, and any modification will be posted on the website. The user agrees to periodically review the updated terms and conditions. Continued access and use of Nacional Music Club after such modifications constitute acceptance of the new terms and conditions.",
 
-
   "wip_title": "Oops! Page Under Construction",
   "wip_message": "We are working on this section. It will be available soon.",
   "wip_back": "Return to the homepage",
 
-
   "error_message": "We are sorry, the page you are looking for doesn't exist.",
   "error_back": "Return to ",
-  "error_back_link": "home page"
+  "error_back_link": "home page",
+
+  "anadir_evento": "Add Event",
+  "reggaeton": "Reggaeton",
+  "tecno": "Techno",
+  "eventos_especiales": "Special Events"
 }
-  

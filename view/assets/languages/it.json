@@ -4,7 +4,7 @@
   "fiestas_privadas": "Feste Private",
   "carrito": "Carrello",
   "contactanos": "Contattaci",
-  "cerrar_sesion": "Uscire",
+  "cerrar_sesion": "Esci",
   "conocenos_mas": "Scopri di più su di noi",
   "descripcion_conocenos_mas": "Più di una discoteca, situato nel cuore di Almería, Nacional Music Club è una scommessa su un'esperienza unica che ridefinisce l'intrattenimento notturno. Immergiti in un mondo vibrante con musica contagiosa, luci accattivanti e un'atmosfera sofisticata che eleva il divertimento e la celebrazione a nuove vette. Oltre ad essere uno spazio di prima classe, siamo un punto d'incontro per coloro che cercano autenticità e diversità musicale. Scopri notti indimenticabili nell'epicentro della scena del divertimento ad Almería.",
   "politica_privacidad": "POLITICA SULLA PRIVACY",
@@ -15,14 +15,12 @@
   "derechos_reservados": "Copyright © 2024 Tutti i diritti riservati",
   "politica_cookies": "Utilizziamo i cookie per offrirti la migliore esperienza sul nostro sito web. Per ulteriori informazioni, visita la nostra ",
   "politica_cookies_link": "Politica sui Cookie",
-  "aceptar_cookies": "Accettare e Chiudere",
+  "aceptar_cookies": "Accetta e chiudi",
 
-
-  
   "tag_video": "Il tuo browser non supporta il tag video.",
-  "elem_video": "Il tuo browser non supporta il elemento video.",
+  "elem_video": "Il tuo browser non supporta l'elemento video.",
   "bienvenido": "Benvenuto!",
-  "nos_alegramos_de_verte": "Ci rallegramo di vederti!",
+  "nos_alegramos_de_verte": "Ci rallegriamo di vederti!",
   "nombre": "Nome:",
   "apellidos": "Cognome:",
   "mail": "Email:",
@@ -30,7 +28,6 @@
   "registrate": "Registrati",
   "no_tienes_cuenta": "Non hai un account?",
   "inicia_sesion": "Accedi",
-  
 
   "carrito_exitoso": "Carrello:",
   "total_exitoso": "Totale",
@@ -39,10 +36,8 @@
   "ticket_footer_2_link": "qui.",
   "ticket_footer_3": "Grazie per averci scelto!",
 
-
   "proximos_eventos": "Prossimi Eventi",
   "eventos_pasados": "Eventi Passati",
-
 
   "entradas_titulo": "Biglietti",
   "elegido_evento": "Hai scelto l'evento ",
@@ -50,11 +45,10 @@
   "n_tarjeta": "Numero di carta:",
   "cvc": "Codice di Sicurezza:",
   "fecha_caducidad": "Data di scadenza:",
-  "acepto": "Acetto i ",
-  "tc_link": "termini e le condizioni",
+  "acepto": "Accetto i ",
+  "tc_link": "termini e condizioni",
   "total": "Totale:",
   "confirm_pago": "Conferma il Pagamento",
-
 
   "politica_privacidad_titulo": "POLITICHE SULLA PRIVACY",
   "politica_privacidad_0": "Benvenuto/a a Nacional Music Club. Comprendiamo l'importanza della privacy e ci impegniamo a proteggere le informazioni personali che condividi con noi. Questa Politica sulla Privacy descrive come raccogliamo, utilizziamo e condividiamo le tue informazioni quando visiti Nacional Music Club e/o utilizzi i nostri servizi.",
@@ -73,14 +67,13 @@
   "politica_privacidad_2.3": "2.3 Miglioramento dei Servizi: Analizziamo le informazioni sull'utilizzo per migliorare la funzionalità e le prestazioni del nostro sito web.",
   "politica_privacidad_subtitulo3": "3. Condivisione delle Informazioni",
   "politica_privacidad_3.1": "3.1 Terze Parti Affidabili: Condividiamo le tue informazioni con terze parti affidabili, come fornitori di servizi di pagamento, solo quando è necessario per completare le tue transazioni.",
-  "politica_privacidad_3.2": "3.2 Requisiti Legali: Divulgamo informazioni quando riteniamo in buona fede che sia necessario per rispettare la legge o proteggere i nostri diritti legali.",
+  "politica_privacidad_3.2": "3.2 Requisiti Legali: Divulghiamo informazioni quando riteniamo in buona fede che sia necessario per rispettare la legge o proteggere i nostri diritti legali.",
   "politica_privacidad_subtitulo4": "4. Cookie e Tecnologie Simili",
   "politica_privacidad_4": "Utilizziamo cookie e tecnologie simili per migliorare l'esperienza dell'utente e raccogliere informazioni sull'uso del nostro sito web. Puoi gestire le preferenze dei cookie nelle impostazioni del tuo browser.",
   "politica_privacidad_subtitulo5": "5. Sicurezza delle Informazioni",
-  "politica_privacidad_5": "Adottiamo misure per proteggere le informazioni personali degli utenti, ma nessuna trasmissione di dati via Internet o archiviazione elettronica è al 100% sicura. Facciamo del nostro meglio per garantire la sicurezza delle tue informazioni, ma non possiamo garantire la sicurezza assoluta.",
+  "politica_privacidad_5": "Adottiamo misure per proteggere le informazioni personali degli utenti, ma nessuna trasmissione di dati via Internet o archiviazione elettronica è al 100% sicura. Facciamo del nostro meglio per garantire la sicurezza delle tue informazioni, ma non possiamo garantirne l'assoluta sicurezza.",
   "politica_privacidad_subtitulo6": "6. Modifiche alla Politica sulla Privacy",
   "politica_privacidad_6": "Ci riserviamo il diritto di aggiornare questa Politica sulla Privacy in qualsiasi momento. Ti consigliamo di rivedere periodicamente questa pagina per essere informato/a su eventuali modifiche.",
-
 
   "cookies_titulo": "AVVISO SUI COOKIE",
   "cookies_1_subtitulo": "1. Introduzione",
@@ -89,9 +82,9 @@
   "cookies_2": "I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web. Questi cookie contengono informazioni utilizzate per migliorare la tua esperienza di navigazione.",
   "cookies_3_subtitulo": "3. Come utilizziamo i cookie?",
   "cookies_3.1": "Su Nacional Music Club utilizziamo i cookie con l'obiettivo di:",
-  "cookies_3.2": "- Mantenere la Sessione Attiva: Utilizziamo i cookie per garantire che tu possa accedere alle aree sicure e mantenere attiva la tua sessione durante la visita.",
+  "cookies_3.2": "- Gestione della Sessione: Utilizziamo i cookie per garantire l'accesso alle aree protette e mantenere attiva la sessione durante la visita.",
   "cookies_3.3": "- Lingua Selezionata: Memorizziamo i cookie per ricordare la lingua che hai selezionato al fine di personalizzare la tua esperienza di navigazione.",
-  "cookies_3.4": "- Carrello degli Acquisti: Utilizziamo i cookie per gestire il carrello degli acquisti e ricordare gli articoli che hai selezionato. Ciò include la capacità di unire il carrello precedente con l'account dopo l'accesso.",
+  "cookies_3.4": "- Carrello degli Acquisti: Utilizziamo i cookie per gestire il carrello e ricordare gli articoli selezionati. Ciò include la possibilità di unire il carrello precedente con l'account dopo l'accesso.",
   "cookies_4_subtitulo": "4. Consenso dell'Utente",
   "cookies_4": "Utilizzando il nostro sito web, accetti l'uso dei cookie in conformità con questa Politica sui Cookie. Se non sei d'accordo con l'uso dei cookie, puoi regolare le impostazioni del tuo browser per disabilitarli.",
   "cookies_5_subtitulo": "5. Impostazioni dei Cookie",
@@ -101,8 +94,7 @@
   "cookies_7_subtitulo": "7. Contatto",
   "cookies_7": "Se hai domande sulla nostra Politica sui Cookie, ti preghiamo di contattarci tramite questo ",
   "cookies_7_link": "link",
-  "cookies_fecha_ultima": "Data dell'ultima aggiornamento: 13 gennaio 2024",
-
+  "cookies_fecha_ultima": "Data dell'ultimo aggiornamento: 13 gennaio 2024",
 
   "tc_titulo": "CONDIZIONI D'USO",
   "tc_0": "Benvenuto/a su Nacional Music Club. Prima di utilizzare i nostri servizi, ti preghiamo di leggere attentamente le seguenti condizioni d'uso. Accedendo e utilizzando Nacional Music Club, accetti di rispettare queste condizioni d'uso. Se non sei d'accordo con qualsiasi parte di queste condizioni, ti invitiamo a non utilizzare i nostri servizi.",
@@ -118,22 +110,25 @@
   "tc_4.1": "4.1 Uso Responsabile: L'utente si impegna a utilizzare Nacional Music Club in modo responsabile e conforme a tutte le leggi e regolamentazioni applicabili.",
   "tc_4.2": "4.2 Contenuto dell'Utente: Inviando contenuti alla nostra piattaforma, l'utente garantisce di avere i diritti necessari su detto contenuto e che non viola i diritti di terzi.",
   "tc_subtitulo5": "5. Privacy",
-  "tc_5": "La nostra politica sulla privacy descrive come raccogliamo, utilizziamo e condividiamo le informazioni. Utilizzando i nostri servizi, l'utente accetta le pratiche descritte nella nostra ",
+  "tc_5": "La nostra  descrive come raccogliamo, utilizziamo e condividiamo le informazioni. Utilizzando i nostri servizi, l'utente accetta le pratiche descritte nella nostra ",
   "tc_5_link": "politica sulla privacy",
   "tc_subtitulo6": "6. Modifiche e Terminazione",
   "tc_6.1": "6.1 Modifiche: Ci riserviamo il diritto di modificare queste Condizioni d'Uso in qualsiasi momento. Le modifiche entreranno in vigore immediatamente dopo la loro pubblicazione su Nacional Music Club.",
   "tc_6.2": "6.2 Terminazione dei Servizi: Ci riserviamo il diritto di sospendere o terminare l'accesso di qualsiasi utente a Nacional Music Club in qualsiasi momento, per qualsiasi motivo e senza preavviso.",
   "tc_subtitulo7": "Limitazione di Responsabilità",
   "tc_7": "L'uso di Nacional Music Club è sotto la responsabilità dell'utente. Non garantiamo che il servizio sia ininterrotto, sicuro o privo di errori.",
-  "tc_summary": "Queste condizioni d'uso sono soggette a modifiche, e ogni modifica sarà pubblicata sul sito web. L'utente si impegna a rivedere periodicamente le condizioni d'uso aggiornate. L'accesso e l'uso continuato di Nacional Music Club dopo tali modifiche costituiscono l'accettazione delle nuove condizioni d'uso.",
-
+  "tc_summary": "Queste condizioni d'uso sono soggette a modifiche, e ogni modifica sarà pubblicata sul sito web. L'accesso e l'uso continuato di Nacional Music Club dopo tali modifiche costituiscono l'accettazione delle nuove condizioni d'uso.",
 
   "wip_title": "Ops! Pagina in costruzione",
   "wip_message": "Stiamo lavorando in questa sezione. Sarà presto disponibile",
   "wip_back": "Ritorna alla pagina principale",
 
-
   "error_message": "Siamo spiacenti, la pagina che stai cercando non esiste.",
   "error_back": "Ritorna alla ",
-  "error_back_link": "pagina principale"  
+  "error_back_link": "pagina principale",
+
+  "anadir_evento": "Aggiungi Evento",
+  "reggaeton": "Reggaeton",
+  "tecno": "Techno",
+  "eventos_especiales": "Eventi Speciali"
 }

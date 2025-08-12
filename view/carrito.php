@@ -14,75 +14,42 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Carrito | Nacional Music Club</title>
+  <title>Carrito | Nacional Music Club</title>
   <link rel="icon" href="./assets/images/favicons/N_simpleBlanca.png" type="image/png">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/header.css">
   <link rel="stylesheet" href="./assets/css/carrito.css">
 
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <script src="./assets/js/idioma.js" type="application/javascript"></script>
-  <script src="./assets/js/carrito.js"></script>
+  <!-- JS de idioma (primero), luego header y footer -->
+  <script src="./assets/js/idioma.js" defer></script>
+  <script src="./assets/js/header.js" defer></script>
+  <script src="./assets/js/footer.js" defer></script>
+
+  <!-- Tu lógica del carrito (si manipula DOM, mejor también con defer) -->
+  <script src="./assets/js/carrito.js" defer></script>
 </head>
 
 <body>
-  <header>
-    <a href="./index.php" class="logo"><img src="./assets/images/logos/logoBlanco.png" width="24%"
-        alt="Nacional Music Club"></a>
-
-    <nav class="navigation">
-      <ul class="show">
-        <?php if (!isset($_SESSION['email'])): ?>
-          <li><a href="./login.php"><i class="fa-solid fa-user"></i></a></li>
-        <?php endif; ?>
-        <li>
-          <div id="language-selector" class="hidden">
-            <select id="list" class="language-select" onchange="cambiarIdioma(this.value)">
-              <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
-              <option id="en" class="" value="en"> 🇺🇸 US</option>
-              <option id="it" class="" value="it"> 🇮🇹 IT</option>
-            </select>
-          </div>
-          <div id="language-icon" onclick="toggleLanguageSelector()">
-            <i class="fa-solid fa-earth-europe"></i>
-          </div>
-        </li>
-        <li><i id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-              <div class="elements">
-                <li><i class="fa-solid fa-ticket"></i><a data-traduccion="eventos" href="./eventos.php">Eventos</a></li>
-                <li><i class="fa-solid fa-champagne-glasses"></i><a data-traduccion="fiestas_privadas"
-                    href="./fiestas_privadas.php">Fiestas Privadas</a></li>
-                <li><i class="fa-solid fa-cart-shopping"></i><a data-traduccion="carrito"
-                    href="./carrito.php">Carrito</a></li>
-                <li><i class="fa-solid fa-phone"></i><a data-traduccion="contactanos"
-                    href="./contacto.php">Contáctanos</a></li>
-
-                <?php if (isset($_SESSION['email'])): ?>
-                  <li><i class="fa-solid fa-right-from-bracket"></i><a id="logoutButton" data-traduccion="cerrar_sesion"
-                      href="../model/logout.php" onclick="cerrarSesion()">Cerrar Sesión</a></li>
-                <?php endif; ?>
-              </div>
-            </ul>
-          </i>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header: lo inyecta header.js -->
+  <header></header>
 
   <main class="main">
     <div class="tarjeta">
       <div class="wrap cf">
         <h1 class="tituloTicket">Nacional Music Club</h1>
+
         <div class="cabecera cf">
-          <h1>Carrito</h1>
+          <h1 data-traduccion="carrito">Carrito</h1>
           <a href="./eventos.php" class="continuar">Seguir comprando</a>
+          <!-- Si quieres que “Seguir comprando” se traduzca, añade la clave
+               "seguir_comprando" en tus JSON y cambia a:
+               <a href="./eventos.php" class="continuar" data-traduccion="seguir_comprando"></a>
+          -->
         </div>
 
         <div class="carrito">
@@ -92,6 +59,8 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
 
             if (empty($actual)) {
               echo '<li class="items"><div class="infoWrap"><p>Tu carrito está vacío</p></div></li>';
+              // Si quieres traducirlo, añade clave "carrito_vacio" en los JSON y usa:
+              // echo '<li class="items"><div class="infoWrap"><p data-traduccion="carrito_vacio"></p></div></li>';
             } else {
               foreach ($actual as $info) {
                 $titulo = htmlspecialchars($info[0]);
@@ -130,18 +99,24 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
         <div class="subtotal cf">
           <ul>
             <li class="totalRow final">
-              <span class="label">Total</span>
+              <span class="label" data-traduccion="total">Total</span>
               <span class="value"><?= number_format($total, 2, ',', '.') . ' €' ?></span>
             </li>
             <li class="totalRow">
               <?php if (isset($_SESSION['email'])): ?>
                 <?php if ($total > 0): ?>
-                  <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar">Comprar</a>
+                  <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar">
+                    Comprar
+                  </a>
+                  <!-- Si quieres traducir “Comprar”, añade "comprar" en los JSON y pon:
+                       <a ... class="btn continuar" data-traduccion="comprar"></a>
+                  -->
                 <?php else: ?>
                   <button class="btn continuar" disabled>Comprar</button>
                 <?php endif; ?>
               <?php else: ?>
                 <p>Por favor, iniciar sesión para continuar</p>
+                <!-- Para traducir: crea "inicia_sesion_para_continuar" en los JSON y usa data-traduccion -->
               <?php endif; ?>
             </li>
           </ul>
@@ -151,7 +126,8 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
     </div>
   </main>
 
-  <script src="./assets/js/carrito.js"></script>
+  <!-- Footer: lo inyecta footer.js -->
+  <footer id="site-footer"></footer>
 </body>
 
 </html>

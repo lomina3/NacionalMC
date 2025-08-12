@@ -30,5 +30,5 @@ footer.innerHTML = `
       </section>
     </div>
   </div>
-  </footer>
+</footer>
 `;
