@@ -1,62 +1,38 @@
 <?php
+// model/eventos.php
 
-include_once('../controller/conexion.php');
-
+include_once(__DIR__ . '/../controller/conexion.php');
 if (!isset($_SESSION)) {
     session_start();
 }
-include("../controller/eventos.php");
+include_once(__DIR__ . '/../controller/eventos.php');
 
-$idEventos = "";
-$titulo = "";
-$descripcion = "";
-$fecha = "";
-$hora = "";
-$precio = "";
-$foto = "";
-$tipo = "";
-$archivo = "";
-$lista = array();
 $evento = new Evento();
+$lista = [];
 
+// $resultado lo define la vista antes de incluir este modelo.
+// Aseguramos valor por defecto si no existe.
+if (!isset($resultado)) {
+    $resultado = 0;
+}
 
-if ($resultado == '1' && $_POST <> NULL) { //ADMIN PAGINA DE MODIFICACIONES & REGISTROS NUEVOS
-
+if ($resultado == 1 && !empty($_POST)) {
+    // ADMIN: crear/modificar evento
     $modExitosa = $evento->validar($_POST);
 
     if ($modExitosa != "Modificación exitosa!") {
         echo ("<script>
-        alert('" . $modExitosa . "');
-        window.location='../view/Aeventosmod.html';
+            alert('" . $modExitosa . "');
+            window.location='../view/Aeventosmod.html';
         </script>");
     } else {
         echo ("<script>
-        alert('" . $modExitosa . "');
-        window.location='../view/admin/Aeventos.html';
+            alert('" . $modExitosa . "');
+            window.location='../view/admin/Aeventos.html';
         </script>");
         die();
     }
-
-    $titulo = $_POST['titulo'];
-    $descripcion = $_POST['descripcion'];
-    $fecha = $_POST['fecha'];
-    $hora = $_POST['hora'];
-    $precio = $_POST['precio'];
-    $tipo = $_POST['tipo'];
-    $foto = $_POST['ImagenEvento'];
-    $archivo = isset($_POST['archivo']) ? "on" : "off";
-
 } else {
-
+    // Carga para vista pública
     $lista = $evento->imprimir_eventos();
-
-
-
-
-    //descripcion
-    //$hora = "";
-    //$precio = "";
 }
-
-
-?>

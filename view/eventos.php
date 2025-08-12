@@ -1,11 +1,14 @@
 <?php
+// view/eventos.php
 include_once('../controller/conexion.php');
-session_start();
-if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
-    $login = $_SESSION['email'];
+if (!isset($_SESSION)) {
+    session_start();
 }
-?>
 
+// Intenta usar password o contrasena, según qué hayas guardado en la sesión
+$sessionEmail = isset($_SESSION['email']) ? $_SESSION['email'] : null;
+$sessionPassword = $_SESSION['password'] ?? $_SESSION['contrasena'] ?? null;
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,7 +16,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Eventos | Nacional Music Club</title>
-     <link rel="icon" href="./assets/images/favicons/N_simpleBlanca.png" type="image/png">
+    <link rel="icon" href="./assets/images/favicons/N_simpleBlanca.png" type="image/png">
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/header.css">
@@ -33,12 +36,14 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     <main class="main">
         <?php
-        $resultado = "";
-        // Verifica que hay una sesión activa
-        if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
+        $resultado = 0;
+        // Si hay sesión intentamos comprobar si es admin
+        if (!empty($sessionEmail) && !empty($sessionPassword)) {
             include('../controller/admin.php');
-            $resultado = comprobacionAdmin($_SESSION['email'], $_SESSION['password']);
+            // Esta función es tuya; devuelve 1 si es admin
+            $resultado = comprobacionAdmin($sessionEmail, $sessionPassword);
         }
+
         if ($resultado == 1) {
             ?>
             <form action="../admin/añadir_eventosAdmin.php" accept-charset="UTF-8" method="post" autocomplete="on">
@@ -51,85 +56,111 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                             class="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-black opacity-100 group-hover:-translate-x-8"></span>
                         <span
                             class="relative w-full text-left text-blbg-black transition-colors duration-200 ease-in-out group-hover:text-gray-200"
-                            data-traduccion="anadir_evento">Añadir
-                            Evento</span>
+                            data-traduccion="anadir_evento">Añadir Evento</span>
                         <span class="absolute inset-0 border-2 border-blbg-black rounded-full"></span>
                     </button>
                 </div>
             </form>
             <?php
         }
-        ?>
-        <?php
+
+        // Cargamos la lista de eventos desde el modelo
         include('../model/eventos.php');
-        $titulo = '';
-        foreach ($lista as $tiempo => $tipo) {
-            print_r('<h3>' . $tiempo . '</h3>');
 
-            $subcat = key($tipo);
-            if (!is_numeric($subcat)) {
-                foreach ($tipo as $tema => $eventos) {
-                    echo '<h4>' . $tema . '<h4>';
-                    echo '<div class="events-container">
-                    <div class="upcoming-events">';
+        if (empty($lista)) {
+            echo '<p style="text-align:center;margin:2rem 0;">No hay eventos disponibles por ahora.</p>';
+        } else {
+            foreach ($lista as $tiempo => $tipo) {
+                echo '<h3>' . htmlspecialchars($tiempo) . '</h3>';
 
-                    foreach ($eventos as $evento => $event) {
+                // Si $tipo es un array de subcategorías (pasados), la primera clave no será numérica
+                $subcat = key($tipo);
 
+                if (!is_numeric($subcat)) {
+                    // Eventos Pasados: por temática
+                    foreach ($tipo as $tema => $eventos) {
+                        echo '<h4>' . htmlspecialchars($tema) . '</h4>';
+                        echo '<div class="events-container"><div class="upcoming-events">';
+
+                        foreach ($eventos as $event) {
+                            $dia = date('d', strtotime($event['fecha']));
+                            $mes = date('M', strtotime($event['fecha']));
+                            $hora = date('H', strtotime($event['fecha']));
+                            $img = "./assets/images/" . $event['foto'];
+                            $pasado = true;
+
+                            // Parámetros en URL
+                            $link = './entradas.php'
+                                . '?idEvento=' . urlencode($event['idEventos'])
+                                . '&img=' . urlencode($img)
+                                . '&titulo=' . urlencode($event['titulo'])
+                                . '&dia=' . urlencode($dia)
+                                . '&mes=' . urlencode($mes)
+                                . '&hora=' . urlencode($hora)
+                                . '&desc=' . urlencode($event['descripcion'])
+                                . '&precio=' . urlencode($event['precio'])
+                                . '&pasado=' . urlencode($pasado);
+
+                            echo "<a href='{$link}' class='card-link' data-event='" . htmlspecialchars($event['idEventos']) . "'>
+                                <div class='card' style='background-image:url(" . htmlspecialchars($img) . "); background-size:cover;'>
+                                    <div class='card__header'><img src='./assets/images/N_simple.png' alt='Nacional' class='card__logo'></div>
+                                    <div class='card__body'>
+                                        <div class='card__date'>
+                                            <span class='card__day'>" . htmlspecialchars($dia) . "</span>
+                                            <span class='card__month'>" . htmlspecialchars($mes) . "</span>
+                                        </div>
+                                        <div class='card__event'>
+                                            <span class='card__name'>" . htmlspecialchars($event['titulo']) . "</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              </a>";
+                        }
+                        echo "</div></div>";
+                    }
+
+                } else {
+                    // Próximos Eventos: array plano
+                    echo '<div class="events-container"><div class="upcoming-events">';
+
+                    // Si quieres orden ascendente por fecha futura, usa array_reverse dependiendo del ORDER BY
+                    foreach ($tipo as $event) {
                         $dia = date('d', strtotime($event['fecha']));
                         $mes = date('M', strtotime($event['fecha']));
                         $hora = date('H', strtotime($event['fecha']));
                         $img = "./assets/images/" . $event['foto'];
-                        $pasado = true;
-                        echo "<a href='./entradas.php?idEvento=" . $event['idEventos'] . "&img=" . $img . "&titulo=" . $event['titulo'] . "&dia=" . $dia . "&mes=" . $mes . "&hora=" . $hora . "&desc=" . $event['descripcion'] . "&precio=" . $event['precio'] . "&pasado=" . $pasado . "'
-                            class='card-link' data-event='" . $event['idEventos'] . "'>
-                            <div class='card' style='background-image:url($img); background-size:cover;'>
+                        $pasado = false;
+
+                        $link = './entradas.php'
+                            . '?idEvento=' . urlencode($event['idEventos'])
+                            . '&img=' . urlencode($img)
+                            . '&titulo=' . urlencode($event['titulo'])
+                            . '&dia=' . urlencode($dia)
+                            . '&mes=' . urlencode($mes)
+                            . '&hora=' . urlencode($hora)
+                            . '&desc=' . urlencode($event['descripcion'])
+                            . '&precio=' . urlencode($event['precio'])
+                            . '&pasado=' . urlencode($pasado);
+
+                        echo "<a href='{$link}' class='card-link' data-event='" . htmlspecialchars($event['idEventos']) . "'>
+                            <div class='card' style='background-image:url(" . htmlspecialchars($img) . "); background-size:cover;'>
                                 <div class='card__header'><img src='./assets/images/N_simple.png' alt='Nacional' class='card__logo'></div>
                                 <div class='card__body'>
                                     <div class='card__date'>
-                                        <span class='card__day'>" . $dia . "</span>
-                                        <span class='card__month'>" . $mes . "</span>
+                                        <span class='card__day'>" . htmlspecialchars($dia) . "</span>
+                                        <span class='card__month'>" . htmlspecialchars($mes) . "</span>
+                                        <span class='card__month'>" . htmlspecialchars($hora) . " H</span>
                                     </div>
                                     <div class='card__event'>
-                                        <span class='card__name'>" . $event['titulo'] . "</span>
+                                        <span class='card__name'>" . htmlspecialchars($event['titulo']) . "</span>
                                     </div>
                                 </div>
                             </div>
-                        </a>";
+                          </a>";
                     }
                     echo "</div></div>";
                 }
-            } else {
-                echo '<div class="events-container">
-                <div class="upcoming-events">';
-
-                foreach (array_reverse($tipo) as $event) {
-
-                    $dia = date('d', strtotime($event['fecha']));
-                    $mes = date('M', strtotime($event['fecha']));
-                    $hora = date('H', strtotime($event['fecha']));
-                    $img = "./assets/images/" . $event['foto'];
-                    $pasado = false;
-                    echo "<a href='./entradas.php?idEvento=" . $event['idEventos'] . "&img=" . $img . "&titulo=" . $event['titulo'] . "&dia=" . $dia . "&mes=" . $mes . "&hora=" . $hora . "&desc=" . $event['descripcion'] . "&precio=" . $event['precio'] . "&pasado=" . $pasado . "'
-                        class='card-link' data-event='" . $event['idEventos'] . "'>
-                            <div class='card' style='background-image:url($img); background-size:cover;'>
-                                <div class='card__header'><img src='./assets/images/N_simple.png' alt='Nacional' class='card__logo'></div>
-                                <div class='card__body'>
-                                    <div class='card__date'>
-                                        <span class='card__day'>" . $dia . "</span>
-                                        <span class='card__month'>" . $mes . "</span>
-                                        <span class='card__month'>" . $hora . " H</span>
-                                    </div>
-                                    
-                                    <div class='card__event'>
-                                        <span class='card__name'>" . $event['titulo'] . "</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>";
-                }
-                echo "</div></div>";
             }
-
         }
         ?>
     </main>

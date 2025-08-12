@@ -1,54 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const upcomingEventsContainer = document.getElementById("upcoming-events");
-    const allEventsContainer = document.getElementById("all-events");
+  // La vista PHP ya renderiza todo. Este script se deja para mejoras opcionales.
+  // Evitamos tocar el DOM si no existen contenedores.
+  const containers = document.querySelectorAll(".events-container");
+  if (!containers.length) return;
 
-    // Supongamos que tienes una lista de eventos en formato JSON
-    const events = [
-        { name: "Fiesta Electrónica", date: "2023-01-01", image: "electronic.jpg", genre: "Electrónica" },
-        // ... Otros eventos ...
-    ];
+  // EJEMPLOS de mejoras futuras (dejados comentados):
+  // 1) Filtrado por texto:
+  // const search = document.querySelector("#event-search");
+  // if (search) {
+  //   search.addEventListener("input", (e) => {
+  //     const q = e.target.value.toLowerCase();
+  //     document.querySelectorAll(".card-link .card__name").forEach(span => {
+  //       const card = span.closest(".card-link");
+  //       card.style.display = span.textContent.toLowerCase().includes(q) ? "" : "none";
+  //     });
+  //   });
+  // }
 
-    // Función para agregar eventos a su contenedor correspondiente
-    function addEventToContainer(event, container) {
-        const card = document.createElement("div");
-        card.classList.add("event-card");
-
-        const currentDate = new Date();
-        const eventDate = new Date(event.date);
-
-        if (eventDate < currentDate) {
-            card.classList.add("past-event");
-        }
-
-        const image = document.createElement("img");
-        image.src = event.image;
-        image.alt = event.name;
-
-        const eventName = document.createElement("h3");
-        eventName.textContent = event.name;
-
-        const eventDateElem = document.createElement("p");
-        eventDateElem.textContent = event.date;
-
-        card.appendChild(image);
-        card.appendChild(eventName);
-        card.appendChild(eventDateElem);
-
-        container.appendChild(card);
-    }
-
-    // Separar eventos por tipo y agregar a los contenedores
-    events.forEach(event => {
-        if (event.genre === "Electrónica") {
-            addEventToContainer(event, upcomingEventsContainer);
-        } else {
-            addEventToContainer(event, allEventsContainer);
-        }
-    });
-
-    // Agregar encabezado a eventos próximos
-    const upcomingHeader = document.createElement("div");
-    upcomingHeader.classList.add("upcoming-header");
-    upcomingHeader.textContent = "Próximos Eventos";
-    upcomingEventsContainer.insertBefore(upcomingHeader, upcomingEventsContainer.firstChild);
+  // 2) Scroll suave a secciones:
+  // document.querySelectorAll("a[href^='#']").forEach(a => {
+  //   a.addEventListener("click", (e) => {
+  //     const id = a.getAttribute("href");
+  //     const el = document.querySelector(id);
+  //     if (el) {
+  //       e.preventDefault();
+  //       el.scrollIntoView({ behavior: "smooth", block: "start" });
+  //     }
+  //   });
+  // });
 });

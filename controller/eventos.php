@@ -1,23 +1,23 @@
 <?php
+// controller/eventos.php
 
 class Evento
 {
-
     private $error = "Por favor, rellene todos los campos.";
 
-    //ADMIN MODS
+    // Valida datos del formulario (para admin: crear/modificar)
     public function validar($datos)
     {
-        foreach ($datos as $campo => $valor) {
-            if ($campo != 'idEventos' && $campo != 'foto' && $campo != 'tipo') {  // PUEDEN SER VACIO SI ES UN REGISTRO NUEVO
-                if (empty($valor)) {
-                    $this->error .= "<br>" . $campo . " está vacio!";
-                }
+        // Campos obligatorios (para inserción/actualización)
+        $obligatorios = ['titulo', 'descripcion', 'fecha', 'hora', 'precio'];
+        foreach ($obligatorios as $campo) {
+            if (!isset($datos[$campo]) || trim($datos[$campo]) === '') {
+                $this->error .= "<br>" . $campo . " está vacío!";
             }
         }
 
-        if ($this->error == "Por favor, rellene todos los campos.") {
-            //no error
+        // Si no hay errores, pasamos a modificar/insertar
+        if ($this->error === "Por favor, rellene todos los campos.") {
             $this->error = $this->modificar($datos);
         }
         return $this->error;
@@ -25,26 +25,39 @@ class Evento
 
     public function modificar($datos)
     {
-        include('controlador.php');
+        include_once(__DIR__ . '/controlador.php'); // Clase db()
 
+        // Sanitizado básico (mantengo addslashes por compatibilidad con tu clase db)
         $idEventos = isset($_POST['idEventos']) ? addslashes($_POST['idEventos']) : "";
-        $titulo = addslashes($_POST['titulo']);
-        $descripcion = addslashes($_POST['descripcion']);
-        $date = $_POST['fecha'];
-        $time = $_POST['hora'];
-        $fecha = date('y-m-d H:i', strtotime("$date $time"));
-        $precio = addslashes($_POST['precio']);
-        $tipoEvento = $_POST['tipo'];
+        $titulo = isset($_POST['titulo']) ? addslashes($_POST['titulo']) : "";
+        $descripcion = isset($_POST['descripcion']) ? addslashes($_POST['descripcion']) : "";
+        $date = isset($_POST['fecha']) ? $_POST['fecha'] : ""; // yyyy-mm-dd
+        $time = isset($_POST['hora']) ? $_POST['hora'] : "";   // HH:ii
+        $precio = isset($_POST['precio']) ? addslashes($_POST['precio']) : "";
+        $tipoEvento = isset($_POST['tipo']) ? $_POST['tipo'] : null; // enum('Reggaeton','Tecno') o null
         $foto = isset($_POST['ImagenEvento']) ? addslashes($_POST['ImagenEvento']) : "";
-        $archivo = isset($_POST['archivo']) ? $_POST['archivo'] : "";
         $arch = isset($_POST['archivo']) ? 1 : 0;
 
-        if ($idEventos == "") {//NUEVO REGISTRO
-            $consulta = "INSERT INTO eventos (titulo, descripcion, fecha, precio, tipoEvento, foto, archivo) values ('$titulo',  '$descripcion', '$fecha', '$precio', '$tipoEvento', '$foto', '$arch')";
-        } else { //MODIFICACION
-            $consulta = "UPDATE eventos";
-            $consulta .= " SET titulo = '$titulo', descripcion = '$descripcion', fecha = '$fecha', precio = '$precio', tipoEvento = '$tipoEvento', foto = '$foto',  archivo ='$arch'";
-            $consulta .= " WHERE idEvento = '$idEventos';";
+        // Fecha/hora correcta para MySQL: Y-m-d H:i:s
+        $fecha = date('Y-m-d H:i:s', strtotime("$date $time"));
+
+        if ($idEventos === "") {
+            // NUEVO REGISTRO
+            $consulta = "INSERT INTO eventos (titulo, descripcion, fecha, precio, tipoEvento, foto, archivo)
+                         VALUES ('$titulo', '$descripcion', '$fecha', '$precio', " .
+                ($tipoEvento !== null && $tipoEvento !== "" ? "'" . addslashes($tipoEvento) . "'" : "NULL") .
+                ", '$foto', '$arch')";
+        } else {
+            // MODIFICAR EXISTENTE
+            $consulta = "UPDATE eventos
+                         SET titulo='$titulo',
+                             descripcion='$descripcion',
+                             fecha='$fecha',
+                             precio='$precio',
+                             tipoEvento=" . ($tipoEvento !== null && $tipoEvento !== "" ? "'" . addslashes($tipoEvento) . "'" : "NULL") . ",
+                             foto='$foto',
+                             archivo='$arch'
+                         WHERE idEventos='$idEventos'";
         }
 
         $DB = new db();
@@ -56,45 +69,48 @@ class Evento
 
     public function imprimir_eventos()
     {
-        include('controlador.php');
+        include_once(__DIR__ . '/controlador.php'); // Clase db()
 
-        $consulta = "SELECT * FROM eventos WHERE archivo = '0' ORDER BY fecha DESC;";
+        $consulta = "SELECT * FROM eventos WHERE archivo='0' ORDER BY fecha DESC";
         $DB = new db();
         $eventos = $DB->leer($consulta);
 
-        if (!empty($eventos)) {
-            $listas = array();
-            $proximo = array();
-            $pasado = array();
-            $reggaeton = array();
-            $tecno = array();
-            $especial = array();
-            foreach ($eventos as $evento) {
-                date_default_timezone_set('Europe/Madrid');
-                $ahora = date_create()->format('Y-m-d H:i:s');
-                if ($evento['fecha'] > $ahora) {
-                    array_push($proximo, $evento);
-                    //Próximos Eventos
-                } else if ($evento['tipoEvento'] == 'Reggaeton') {
-                    array_push($reggaeton, $evento);
-                    //eventos pasados reggaeton
-                } else if ($evento['tipoEvento'] == 'Tecno') {
-                    array_push($tecno, $evento);
-                    //eventos pasados tecno
+        if (empty($eventos))
+            return [];
+
+        date_default_timezone_set('Europe/Madrid');
+        $ahora = date('Y-m-d H:i:s');
+
+        $proximo = [];
+        $reggaeton = [];
+        $tecno = [];
+        $especial = []; // cualquier otro tipo o NULL
+
+        foreach ($eventos as $evento) {
+            // Si fecha futura -> Próximos
+            if ($evento['fecha'] > $ahora) {
+                $proximo[] = $evento;
+            } else {
+                // Pasados por tipo
+                if ($evento['tipoEvento'] === 'Reggaeton') {
+                    $reggaeton[] = $evento;
+                } elseif ($evento['tipoEvento'] === 'Tecno') {
+                    $tecno[] = $evento;
                 } else {
-                    array_push($especial, $evento);
-                    //eventos pasados especiales
+                    $especial[] = $evento;
                 }
             }
-
-            $listas['Próximos Eventos'] = $proximo;
-            $listas['Eventos Pasados'] = $pasado;
-
-            $pasado['Reggaeton'] = $reggaeton;
-            $pasado['Tecno'] = $tecno;
-            $pasado['Eventos Especiales'] = $especial;
-
-            return $listas;
         }
+
+        $pasado = [
+            'Reggaeton' => $reggaeton,
+            'Tecno' => $tecno,
+            'Eventos Especiales' => $especial,
+        ];
+
+        return [
+            'Próximos Eventos' => $proximo,
+            'Eventos Pasados' => $pasado,
+        ];
     }
 }
