@@ -1,12 +1,15 @@
 <?php
 include_once('../controller/conexion.php');
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
+
 if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
   $login = $_SESSION['email'];
 }
 
-// Cargar el carrito para la vista
-include('../model/carrito_read.php'); // define $actual según tu usuario
+// Cargar el carrito para la vista (debe definir $actual para el usuario actual)
+include('../model/carrito_read.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,18 +28,18 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-  <!-- JS de idioma (primero), luego header y footer -->
+  <!-- JS de idioma (debe ir antes que el header/footer para que exista cambiarIdioma/toggleLanguageSelector) -->
   <script src="./assets/js/idioma.js" defer></script>
-  <script src="./assets/js/header.js" defer></script>
-  <script src="./assets/js/footer.js" defer></script>
 
-  <!-- Tu lógica del carrito (si manipula DOM, mejor también con defer) -->
+  <!-- Tu lógica del carrito -->
   <script src="./assets/js/carrito.js" defer></script>
 </head>
 
 <body>
-  <!-- Header: lo inyecta header.js -->
-  <header></header>
+  <!-- Header desde template -->
+  <header class="site-header" id="site-header">
+    <?php include('./assets/templates/header.php'); ?>
+  </header>
 
   <main class="main">
     <div class="tarjeta">
@@ -46,8 +49,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
         <div class="cabecera cf">
           <h1 data-traduccion="carrito">Carrito</h1>
           <a href="./eventos.php" class="continuar">Seguir comprando</a>
-          <!-- Si quieres que “Seguir comprando” se traduzca, añade la clave
-               "seguir_comprando" en tus JSON y cambia a:
+          <!-- Si quieres traducir “Seguir comprando”, añade la clave "seguir_comprando" a tus JSON y cambia a:
                <a href="./eventos.php" class="continuar" data-traduccion="seguir_comprando"></a>
           -->
         </div>
@@ -59,7 +61,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
 
             if (empty($actual)) {
               echo '<li class="items"><div class="infoWrap"><p>Tu carrito está vacío</p></div></li>';
-              // Si quieres traducirlo, añade clave "carrito_vacio" en los JSON y usa:
+              // Para traducirlo: crea "carrito_vacio" en los JSON y usa:
               // echo '<li class="items"><div class="infoWrap"><p data-traduccion="carrito_vacio"></p></div></li>';
             } else {
               foreach ($actual as $info) {
@@ -108,8 +110,8 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
                   <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar">
                     Comprar
                   </a>
-                  <!-- Si quieres traducir “Comprar”, añade "comprar" en los JSON y pon:
-                       <a ... class="btn continuar" data-traduccion="comprar"></a>
+                  <!-- Si quieres traducir “Comprar”, añade "comprar" en los JSON y cambia a:
+                       <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar" data-traduccion="comprar"></a>
                   -->
                 <?php else: ?>
                   <button class="btn continuar" disabled>Comprar</button>
@@ -126,8 +128,10 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
     </div>
   </main>
 
-  <!-- Footer: lo inyecta footer.js -->
-  <footer id="site-footer"></footer>
+  <!-- Footer desde template -->
+  <footer class="site-footer" id="site-footer">
+    <?php include('./assets/templates/footer.php'); ?>
+  </footer>
 </body>
 
 </html>

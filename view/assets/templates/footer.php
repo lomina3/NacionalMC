@@ -1,13 +1,25 @@
 <footer class="site-footer">
     <img class="logo_n" src="./assets/images/favicons/N_simpleBlanca.png" width="24%" alt="NacionalMC">
+
     <div class="container">
         <div class="row1">
             <section class="footer-section">
                 <ul class="footer-links">
-                    <li><a href="./politica_privacidad.php" data-traduccion="politica_privacidad">POLÍTICA DE
-                            PRIVACIDAD</a></li>
-                    <li><a href="./cookies.php" data-traduccion="cookies">AVISO DE COOKIES</a></li>
-                    <li><a href="./terms.php" data-traduccion="terminos_condiciones">TÉRMINOS Y CONDICIONES</a></li>
+                    <li>
+                        <a href="./politica_privacidad.php" data-traduccion="politica_privacidad">
+                            POLÍTICA DE PRIVACIDAD
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./cookies.php" data-traduccion="cookies">
+                            AVISO DE COOKIES
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./terms.php" data-traduccion="terminos_condiciones">
+                            TÉRMINOS Y CONDICIONES
+                        </a>
+                    </li>
                 </ul>
             </section>
         </div>
