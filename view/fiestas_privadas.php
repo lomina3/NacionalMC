@@ -44,14 +44,14 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
                 <label for="eventType" data-traduccion="tipo_evento">Tipo de Evento:</label>
                 <div class="dropdown-container">
-                    <input type="text" id="eventTypeInput" name="eventType" list="eventTypeList" data-traduccion="seleccion_opcion"
+                    <input type="text" id="eventTypeInput" name="eventType" list="eventTypeList" data-traduccion-placeholder="seleccion_opcion"
                         placeholder="Selecciona una opción" required>
                     <span class="arrow-icon"><i class="fas fa-angle-down" id="dropdown-icon"></i></span>
                     <datalist id="eventTypeList">
-                        <option value="Boda" data-traduccion="boda"></option>
-                        <option value="Cumpleaños" data-traduccion="cumple"></option>
-                        <option value="Evento Corporativo" data-traduccion="corp"></option>
-                        <option value="Otro" data-traduccion="otro"></option>
+                        <option data-traduccion="boda"></option>
+                        <option data-traduccion="cumple"></option>
+                        <option data-traduccion="corp"></option>
+                        <option data-traduccion="otro"></option>
                     </datalist>
                 </div>
 

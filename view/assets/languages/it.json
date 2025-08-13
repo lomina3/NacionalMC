@@ -26,22 +26,22 @@
   "nos_alegramos_de_verte": "Ci rallegramo di vederti!",
   "nombre": "Nome:",
   "apellidos": "Cognome:",
-  "mail": "Email:",
+  "mail": "E-Mail:",
   "contraseña": "Password:",
   "confirmar_contrasena": "Conferma password:",
   "fecha_nacimiento": "Data di nascita:",
   "registrate": "Registrati",
   "registrarse": "Registrare",
   "no_tienes_cuenta": "Non hai un account?",
-  "iniciar_sesion": "Login",
+  "iniciar_sesion": "Accedi",
   "inicia_sesion": "Accedi",
   "ya_tienes_cuenta": "Hai già un account?",
   "login_incorrecto": "L'email o la password non sono corrette. Controlla le tue credenziali.",
   "signup_correcto": "Ti sei registrato con successo. Ora puoi accedere.",
   "signup_incorrecto": "I campi non sono stati popolati con le credenziali consentite. Riprova, ",
   "contacta": "altrimenti contattaci",
-
   
+
 
   "seguir_comprando": "Continuare a Comprare",
   "comprar": "Acquistare",
@@ -72,6 +72,7 @@
   "titular_tarjeta": "Titolare della Carta",
   "titular": "Titolare",
   "acepto": "Acetto i ",
+  "y_la": "e l'",
   "tc_link": "termini e le condizioni",
   "privacidad_link": "politica sulla privacy",
   "total": "Totale:",
@@ -128,7 +129,7 @@
 
   "quienes_somos": "Chi Siamo?",
   "somos_nacional": "SIAMO NACIONAL",
-  "sobre_nosotros": "Chi Siamo",
+  "sobre_nosotros": "Chi siamo",
   "sobre_nosotros_desc": "Benvenuti al Nacional Music Club! Fondato con passione e visione da Grupo Tendencia nel 2018, siamo un'esperienza musicale vibrante nel cuore della città. Al Nacional Music Club, uniamo l'amore per la musica a un'atmosfera eccezionale per offrirti serate indimenticabili. Dai eventi esclusivi alle ultime tendenze musicali, la nostra pista da ballo è il palcoscenico perfetto per godere della migliore musica e creare momenti memorabili. Strategicamente situati ad Almería, siamo orgogliosi di far parte integrante di Grupo Tendencia, un'organizzazione dedicata alla creazione di esperienze uniche. Con una visione all'avanguardia, cerchiamo di superare i limiti della vita notturna, offrendoti uno spazio dove musica, divertimento e sofisticatezza si fondono. Esplora il Nacional Music Club e scopri un luogo dove la musica prende vita e un'energia contagiosa ti avvolge. Unisciti a noi in questo viaggio musicale, dove ogni notte è un'opportunità per creare ricordi indelebili. Non vediamo l'ora di vederti presto sulla pista da ballo!",
   "contacto": "Contatto",
   "cont_titulo": "Hai domande o richieste speciali? Saremo lieti di rispondere.",
@@ -140,6 +141,8 @@
   "direccion_cont": "Indirizzo: Calle Marqués de Comillas, 18, 04004, Almería, Spagna",
   "telef_cont": "Telefono: +34 619 829 828",
   "mail_cont": "Email: soporte@nacionalmusicclub.es",
+  "escribe_mensaje": "Scrivi il tuo messaggio qui",
+  "encuentranos": "Trovarci",
 
 
   "politica_privacidad_titulo": "POLITICHE SULLA PRIVACY",
@@ -204,7 +207,8 @@
   "tc_4.1": "4.1 Uso Responsabile: L'utente si impegna a utilizzare Nacional Music Club in modo responsabile e conforme a tutte le leggi e regolamentazioni applicabili.",
   "tc_4.2": "4.2 Contenuto dell'Utente: Inviando contenuti alla nostra piattaforma, l'utente garantisce di avere i diritti necessari su detto contenuto e che non viola i diritti di terzi.",
   "tc_subtitulo5": "5. Privacy",
-  "tc_5": "La nostra politica sulla privacy descrive come raccogliamo, utilizziamo e condividiamo le informazioni. Utilizzando i nostri servizi, l'utente accetta le pratiche descritte nella nostra ",
+  "tc_5_inicio": "La nostra ",
+  "tc_5_fin": "politica sulla privacy descrive come raccogliamo, utilizziamo e condividiamo le informazioni. Utilizzando i nostri servizi, l'utente accetta le pratiche descritte nella nostra ",
   "tc_5_link": "politica sulla privacy",
   "tc_subtitulo6": "6. Modifiche e Terminazione",
   "tc_6.1": "6.1 Modifiche: Ci riserviamo il diritto di modificare queste Condizioni d'Uso in qualsiasi momento. Le modifiche entreranno in vigore immediatamente dopo la loro pubblicazione su Nacional Music Club.",

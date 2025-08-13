@@ -17,7 +17,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     <link href="./assets/css/style.css" rel="stylesheet" />
     <link href="./assets/css/form.css" rel="stylesheet" />
-    <link href="./assets/css/language.css" rel="stylesheet">
 
     <script src="./assets/js/form.js"></script>
     <script src="./assets/js/idioma.js" type="application/javascript"></script>
@@ -39,26 +38,26 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
         <div class="right-section">
 
-        <div class="arrow-world">
             <ul class="back-arrow" id="login">
                 <li><a class="back" href="../"><i class="fa-solid fa-angle-left"></i></a></li>
             </ul>
 
             <li class="language-position">
                 <div id="language-selector" class="hidden">
-                    <select id="list" class="language-select">
-                        <option id="es" value="es" selected> 🇪🇸 ES</option>
-                        <option id="en" value="en"> 🇺🇸 US</option>
-                        <option id="it" value="it"> 🇮🇹 IT</option>
-                    </select>
+                    <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
+                            <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
+                            <option id="en" class="" value="en"> 🇬🇧 EN</option>
+                            <option id="it" class="" value="it"> 🇮🇹 IT</option>
+                            <option id="de" class="" value="de"> 🇩🇪 DE</option>
+                            <option id="fr" class="" value="fr"> 🇫🇷 FR</option>
+                        </select>
                 </div>
 
                 <!-- Agrega el icono para mostrar/ocultar el selector -->
                 <div id="language-icon" onclick="toggleLanguageSelector()">
                     <i class="fa-solid fa-earth-europe"></i>
                 </div>
-            </li>
-        </div>   
+            </li> 
 
             <form id="signup" action="../model/signup.php" accept-charset="UTF-8" method="post" autocomplete="on">
             <h2 class="form_title" data-traduccion="bienvenido">¡Bienvenido!</h2>
@@ -90,7 +89,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                                 <i class="fas fa-eye" id="showIcon"></i>
                             </button>
                         </div>
-                        <label for="password2" class="fontLabel" data-traduccion="cofirmar_contraseña">Confirmar
+                        <label for="password2" class="fontLabel" data-traduccion="confirmar_contrasena">Confirmar
                             contraseña:</label>
                         <div class="input-group">
                             <input type="password" id="password2" name="password2" class="form-control" minlength="8"
@@ -106,13 +105,15 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
                     <div class="checkbox-container">
                         <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
-                        <label for="termsCheckbox" class="fontLabel" data-traduccion="acepto">
-                            Acepto los <a class="enlace" href="./terms" target="_blank"
-                                data-traduccion="terminos_enlace">términos y
-                                condiciones</a>
-                            y la <a class="enlace" href="./politica_privacidad" target="_blank"
-                                data-traduccion="privacidad_enlace">política
-                                de privacidad</a>
+                        <label for="termsCheckbox" class="fontLabel">
+                            <span data-traduccion="acepto">Acepto los</span>
+                            <a class="enlace" href="./terms.php" target="_blank" data-traduccion="tc_link">
+                                términos y condiciones
+                            </a>
+                            <span data-traduccion="y_la">y la </span>
+                            <a class="enlace" href="./politica_privacidad.php" target="_blank" data-traduccion="privacidad_link">
+                                política de privacidad
+                            </a>
                         </label>
                     </div>
 
@@ -134,8 +135,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     </button>
                 </div>
 
-                <p class="login" data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta? <a href="./login.php" data-traduccion="inicia_sesion">Inicia
-                        sesión</a></p>
+                <p class="login">
+                    <span data-traduccion="ya_tienes_cuenta">¿Ya tienes cuenta?</span>
+                    <a href="./login.php" data-traduccion="inicia_sesion">Inicia sesión</a>
+                </p>
+
 
             </form>
         </div>

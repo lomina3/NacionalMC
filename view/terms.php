@@ -78,10 +78,13 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                 derechos necesarios sobre dicho contenido y que no infringe los derechos de terceros.
             </p>
             <h2 data-traduccion="tc_subtitulo5">5. Privacidad</h2>
-            <p data-traduccion="tc_5">
-                Nuestra <a data-traduccion="tc_5_link" href="./politica_privacidad.html" id="enlace">política de privacidad</a> describe cómo
-                recopilamos, utilizamos y compartimos la información. Al utilizar nuestros servicios, el usuario acepta
-                las prácticas descritas en nuestra Política de Privacidad.
+            <p data-traduccion="tc_5_inicio">
+                Nuestra 
+                <a data-traduccion="tc_5_link" href="./politica_privacidad.php" id="enlace">política de privacidad</a> 
+                <span data-traduccion="tc_5_fin">
+                    describe cómo recopilamos, utilizamos y compartimos la información. Al utilizar nuestros servicios, el usuario acepta
+                    las prácticas descritas en nuestra Política de Privacidad.
+                </span>
             </p>
             <h2 data-traduccion="tc_subtitulo6">6. Modificaciones y Terminación</h2>
             <p data-traduccion="tc_6.1">

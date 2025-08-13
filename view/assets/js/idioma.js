@@ -1,6 +1,4 @@
-// ===== FUNCIONES PRINCIPALES ===== //
-
-// 1. Selector de idioma visible/oculto
+// 1. Mostrar/ocultar selector
 window.toggleLanguageSelector = function() {
   const selector = document.getElementById('language-selector');
   if (selector) selector.classList.toggle('hidden');
@@ -8,30 +6,42 @@ window.toggleLanguageSelector = function() {
 
 // 2. Cargar JSON de idiomas
 function cargarJSON(url) {
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error(`Error ${response.status} al cargar ${url}`);
-      return response.json();
-    });
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`Error ${response.status} al cargar ${url}`);
+    return response.json();
+  });
 }
 
-// 3. Aplicar traducciones
+// Utilidad: cambiar SOLO el nodo de texto del elemento (sin borrar hijos)
+function setTextPreservingChildren(el, text) {
+  const textNode = Array.from(el.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
+  if (textNode) {
+    textNode.nodeValue = text;
+  } else {
+    el.insertBefore(document.createTextNode(text), el.firstChild);
+  }
+}
+
+// 3. Aplicar traducciones (texto + placeholders)
 function aplicarTraducciones(traducciones) {
-  document.querySelectorAll('[data-traduccion]').forEach(elemento => {
-    const clave = elemento.getAttribute('data-traduccion');
-    if (clave && traducciones[clave]) {
-      // Maneja elementos con iconos u otros hijos
-      if (elemento.children.length > 0) {
-        const spans = elemento.querySelectorAll('span[data-traduccion]');
-        spans.forEach(span => {
-          if (span.getAttribute('data-traduccion') === clave) {
-            span.textContent = traducciones[clave];
-          }
-        });
-      } else {
-        elemento.textContent = traducciones[clave];
-      }
+  // a) Texto en elementos con data-traduccion
+  document.querySelectorAll('[data-traduccion]').forEach(el => {
+    const key = el.getAttribute('data-traduccion');
+    const val = traducciones && traducciones[key];
+    if (!val) return;
+
+    if (el.childElementCount === 0) {
+      el.textContent = val;
+    } else {
+      setTextPreservingChildren(el, val);
     }
+  });
+
+  // b) Placeholders
+  document.querySelectorAll('[data-traduccion-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-traduccion-placeholder');
+    const val = traducciones && traducciones[key];
+    if (val) el.setAttribute('placeholder', val);
   });
 }
 
@@ -39,35 +49,34 @@ function aplicarTraducciones(traducciones) {
 window.cambiarIdioma = async function(idioma) {
   try {
     const rutaJSON = `./assets/languages/${idioma}.json`;
-    console.log('Cargando idioma:', rutaJSON);
-    
     const traducciones = await cargarJSON(rutaJSON);
     aplicarTraducciones(traducciones);
-    
-    // Actualizar selector si existe
+
     const select = document.getElementById('list');
     if (select) select.value = idioma;
-    
+
+    localStorage.setItem('lang', idioma);
   } catch (err) {
     console.error('Error al cambiar idioma:', err);
   }
 };
 
+// 5. Guardar idioma y aplicarlo al cambiar selector
+window.cambiarUbicacion = function(idioma) {
+  localStorage.setItem('lang', idioma);
+  cambiarIdioma(idioma);
+};
+
 // ===== INICIALIZACIÓN ===== //
 document.addEventListener('DOMContentLoaded', function() {
-  // Configurar selector de idioma
   const languageSelect = document.getElementById('list');
-  
+  const lang = localStorage.getItem('lang') || (languageSelect && languageSelect.value) || 'es';
+  cambiarIdioma(lang);
+
   if (languageSelect) {
-    // Cargar idioma guardado o predeterminado
-    const lang = localStorage.getItem('lang') || languageSelect.value;
-    cambiarIdioma(lang);
-    
-    // Evento change
+    languageSelect.value = lang;
     languageSelect.addEventListener('change', function() {
-      localStorage.setItem('lang', this.value);
-      cambiarIdioma(this.value);
+      cambiarUbicacion(this.value);
     });
   }
-  
 });

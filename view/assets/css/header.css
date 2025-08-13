@@ -224,14 +224,14 @@ header .logo:hover {
     margin-bottom: 8px;
     background-color: var(--fondo); /* Cambia el color de fondo de las opciones del selector según tus preferencias */
     color: var(--blanco); /* Cambia el color del texto de las opciones según tus preferencias */
-    border: 1px solid var(--fondo); /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
+    border: 0px solid var(--fondo); /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
     border-radius: 4px; /* Ajusta la forma del borde de las opciones del selector, puedes personalizar según tus necesidades */
 }
 
 header.abajo #language-selector select { 
     background-color: var(--fondo); /* Cambia el color de fondo de las opciones del selector según tus preferencias */
     color: var(--dorado); /* Cambia el color del texto de las opciones según tus preferencias */
-    border: 1px solid none; /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
+    border: 0px solid none; /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
 }
 
 

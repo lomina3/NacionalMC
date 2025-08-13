@@ -46,17 +46,19 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                 }
                 ?>
                 <li>
-                    <div id="language-selector" class="hidden">
-                        <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
-                            <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
-                            <option id="en" class="" value="en"> 🇺🇸 EN</option>
-                            <option id="it" class="" value="it"> 🇮🇹 IT</option>
-                        </select>
-                    </div>
-
                     <!-- Agrega el icono para mostrar/ocultar el selector -->
                     <div id="language-icon" onclick="toggleLanguageSelector()">
                         <i class="fa-solid fa-earth-europe"></i>
+                    </div>
+                    
+                    <div id="language-selector" class="hidden">
+                        <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
+                            <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
+                            <option id="en" class="" value="en"> 🇬🇧 EN</option>
+                            <option id="it" class="" value="it"> 🇮🇹 IT</option>
+                            <option id="de" class="" value="de"> 🇩🇪 DE</option>
+                            <option id="fr" class="" value="fr"> 🇫🇷 FR</option>
+                        </select>
                     </div>
                 </li>
                 <li><i id="menuToggle">

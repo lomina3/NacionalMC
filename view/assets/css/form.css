@@ -2,34 +2,34 @@
 *   SECTIONS 
 */
 .container {
-    display: flex;
-    height: 100vh;
+  display: flex;
+  height: 100vh;
 }
 
 .left-section {
-    flex: 30%;
-    position: relative;
-    overflow: hidden;
+  flex: 30%;
+  position: relative;
+  overflow: hidden;
 }
 
 .left-section video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .logo {
-    position: absolute;
-    top: 1.4rem;
-    left: 1.25rem;
-    font-size: 24px;
-    transition: 1.5s;
-    transition: transform 0.5s ease-in-out;
-    transform-origin: center;
-    cursor: pointer;
+  position: absolute;
+  top: 1.4rem;
+  left: 1.25rem;
+  font-size: 24px;
+  transition: 1.5s;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center;
+  cursor: pointer;
 }
 
 .right-section {
@@ -81,6 +81,60 @@
 
 
 
+/**
+*
+*   SELECTOR IDIOMA
+*
+**/
+/* Estilo para el icono, puedes personalizar según tus necesidades */
+#language-icon {
+    cursor: pointer;
+    color: var(--fondo);
+    font-family:'Varela', monospace;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Estilo para el icono cuando está dentro de un contenedor */
+#language-icon i {
+    display: block;
+    margin: auto;
+}
+
+#language-selector {
+    display: flex;
+    flex-direction: column;
+    position: absolute; /* Ajusta la posición del cuadro de selección según tus necesidades */
+    top: 3rem; /* Ajusta la distancia desde la parte superior según tus necesidades */
+    right: 4.5rem; /* Ajusta la distancia desde la derecha según tus necesidades */
+    background-color: none; /* Cambia el color de fondo del cuadro de selección según tus preferencias */
+    border: none; /* Añade un borde al cuadro de selección, puedes personalizar según tus necesidades */
+    z-index: 1; /* Ajusta el índice z para asegurar que esté sobre otros elementos */
+}
+
+/* Estilo para las opciones del selector */
+#language-selector select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: var(--fondo); /* Cambia el color de fondo de las opciones del selector según tus preferencias */
+    color: var(--blanco); /* Cambia el color del texto de las opciones según tus preferencias */
+    border: 0px solid var(--fondo); /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
+    border-radius: 4px; /* Ajusta la forma del borde de las opciones del selector, puedes personalizar según tus necesidades */
+}
+
+#language-selector select { 
+    background-color: var(--fondo); /* Cambia el color de fondo de las opciones del selector según tus preferencias */
+    color: var(--dorado); /* Cambia el color del texto de las opciones según tus preferencias */
+    border: 1px solid none; /* Añade un borde a las opciones del selector, puedes personalizar según tus necesidades */
+}
+
+/* Estilo para ocultar el selector de idioma cuando tiene la clase 'hidden' */
+#language-selector.hidden {
+    display: none;
+}
+
+
 
 /***
 *
@@ -91,6 +145,7 @@ form {
   width: 50%;
   margin-right: 5%;
   background-color: var(--fondo);
+  position: relative;
 }
 
 .form-registro {
@@ -161,7 +216,7 @@ form input::placeholder {
 #togglePassword {
   background-color: var(--fondo);
   position: absolute;
-  top: 45%;
+  top: 50%;
   right: 12.5%; /* Ajusta la distancia desde el borde derecho según sea necesario */
   transform: translateY(-50%);
   cursor: pointer;
@@ -216,8 +271,6 @@ form input::placeholder {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
 }
-
-
 
 .button-box {
   border-width: none;

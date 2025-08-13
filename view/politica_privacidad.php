@@ -34,7 +34,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
      <main class="main">
 
         <div class="content" id="content">
-        <h1 id="priv-title" data-traduccion="politicas_privacidad_titulo">POLÍTICAS DE PRIVACIDAD</h1>
+        <h1 id="priv-title" data-traduccion="politica_privacidad_titulo">POLÍTICAS DE PRIVACIDAD</h1>
             <p data-traduccion="politica_privacidad_0">
                 Bienvenido/a a Nacional Music Club. Entendemos la importancia de la
                 privacidad y nos comprometemos a proteger la información personal que
