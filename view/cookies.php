@@ -81,7 +81,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             <h2 data-traduccion="cookies_7_subtitulo">7. Contacto</h2>
             <p data-traduccion="cookies_7">
                 Si tienes preguntas sobre nuestra Política de Cookies, por favor contáctanos a través de este <a
-                    href="./contacto.html" id="enlace" data-traduccion="cookies_7_link">enlace.</a>
+                    href="./contacto.php" id="enlace" data-traduccion="cookies_7_link">enlace.</a>
             </p>
             <br>
             <p data-traduccion="cookies_fecha_ultima">
