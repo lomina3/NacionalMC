@@ -24,7 +24,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <script src="./assets/js/idioma.js" type="application/javascript"></script>
 
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -39,16 +38,16 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
             Tu navegador no soporta el elemento de video.
         </video>
         <div>
-            <h10 class="titulo-texto">¿Quiénes somos?</h10>
-            <p class="cuadro-texto">SOMOS NACIONAL</p>
+            <h10 class="titulo-texto" data-traduccion="quienes_somos">¿Quiénes somos?</h10>
+            <p class="cuadro-texto" data-traduccion="somos_nacional">SOMOS NACIONAL</p>
         </div>
     </section>
 
-    <main>
+        <main>
 
         <div class="content" id="content">
-            <h1 id="terms-title">Sobre Nosotros</h1>
-            <p class="sobre-nosotros">
+            <h1 id="terms-title" data-traduccion="sobre_nosotros">Sobre Nosotros</h1>
+            <p class="sobre-nosotros" data-traduccion="sobre_nosotros_desc">
                 ¡Bienvenido a Nacional Music Club! Fundado con pasión y visión por Grupo Tendencia en 2018, somos una
                 vibrante experiencia musical en el corazón de la ciudad.
                 <br>
@@ -69,11 +68,11 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
         </div>
 
         <div class="content" id="content">
-            <h1>Contacto</h1>
+            <h1 data-traduccion="contacto">Contacto</h1>
 
             <section id="formulario">
                 <!-- Formulario de contacto -->
-                <h3 class="text-form">¿Tienes alguna pregunta o solicitud especial? Estaremos encantados de
+                <h3 class="text-form" data-traduccion="cont_titulo">¿Tienes alguna pregunta o solicitud especial? Estaremos encantados de
                     responderlas.</h3>
                 <form class="contacto-form" action="../model/contacto.php" method="post">
                     <div class="name-container">
@@ -93,14 +92,13 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
                     </div>
 
                     <div class="number-container">
-                        <label for="number" class="fontLabel" data-traduccion="number">Nº Telefono:</label>
+                        <label for="number" class="fontLabel" data-traduccion="num_telef">Nº Telefono:</label>
                         <input type="tel" id="number" name="number" pattern="[0-9]{9}" required>
                     </div>
 
                     <div class="message-container">
-                        <label for="message">Mensaje:</label>
-                        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" rows="4"
-                            required></textarea>
+                        <label for="message" data-traduccion="mensaje">Mensaje:</label>
+                        <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí" data-traduccion-placeholder="escribe_mensaje" rows="4" required></textarea>
                     </div>
 
                     <div class="button-box">
@@ -121,15 +119,15 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
             <section id="informacion">
                 <!-- Información de contacto -->
-                <h2 class="informacion">Información de contacto</h2>
-                <p>Nacional Music Club</p>
-                <p>Dirección: Calle Marqués de Comillas, 18, 04004, Almería, España</p>
-                <p>Teléfono: +34 619 829 828</p>
-                <p>Email: soporte@nacionalmusicclub.es</p>
+                <h2 class="informacion" data-traduccion="info_cont">Información de contacto</h2>
+                <p data-traduccion="nacional">Nacional Music Club</p>
+                <p data-traduccion="direccion_cont">Dirección: Calle Marqués de Comillas, 18, 04004, Almería, España</p>
+                <p data-traduccion="telef_cont">Teléfono: +34 619 829 828</p>
+                <p data-traduccion="mail_cont">Email: soporte@nacionalmusicclub.es</p>
             </section>
 
             <section id="map">
-                <h1>Encuéntranos</h1>
+                <h1 data-traduccion="encuentranos">Encuéntranos</h1>
                 <div class="inframe">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12772.974127565085!2d-2.4621256!3d36.8366432!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd707767c394d71f%3A0x78541020c325028b!2sNacional%20Music%20Club!5e0!3m2!1ses!2ses!4v1704941616246!5m2!1ses!2ses"

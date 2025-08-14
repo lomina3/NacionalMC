@@ -1,141 +1,82 @@
-/***
- *  SELECTOR IDIOMA (mostrar/ocultar)
- ***/
-function toggleLanguageSelector() {
-  var selector = document.getElementById('language-selector');
-  if (!selector) return;
-  selector.classList.toggle('hidden');
-}
+// 1. Mostrar/ocultar selector
+window.toggleLanguageSelector = function() {
+  const selector = document.getElementById('language-selector');
+  if (selector) selector.classList.toggle('hidden');
+};
 
-/***
- *  CONFIG
- ***/
-var NMC_LANG_KEY = 'nmc_lang';
-var NMC_SUPPORTED = ['es', 'en', 'it'];
-var NMC_DEFAULT = 'es';
-
-/***
- *  UTIL: cargar JSON
- ***/
-function cargarJSON(url, callback, onerror) {
-  var xhr = new XMLHttpRequest();
-  xhr.overrideMimeType("application/json");
-  xhr.open("GET", url, true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        try {
-          callback(JSON.parse(xhr.responseText));
-        } catch (e) {
-          if (onerror) onerror(e);
-        }
-      } else {
-        if (onerror) onerror(new Error('HTTP ' + xhr.status + ' al cargar ' + url));
-      }
-    }
-  };
-  xhr.send(null);
-}
-
-/***
- *  APLICAR TRADUCCIONES AL DOM
- ***/
-function aplicarTraducciones(dic) {
-  // Texto interior
-  var elementos = document.querySelectorAll('[data-traduccion]');
-  elementos.forEach(function (el) {
-    var key = el.getAttribute('data-traduccion');
-    if (key && dic[key] != null) {
-      el.textContent = dic[key];
-    }
-  });
-
-  // Placeholders (opcional): <input data-tr-placeholder="clave">
-  var placeholders = document.querySelectorAll('[data-tr-placeholder]');
-  placeholders.forEach(function (el) {
-    var key = el.getAttribute('data-tr-placeholder');
-    if (key && dic[key] != null) {
-      el.setAttribute('placeholder', dic[key]);
-    }
-  });
-
-  // title/alt (opcional): data-tr-title / data-tr-alt
-  var titled = document.querySelectorAll('[data-tr-title]');
-  titled.forEach(function (el) {
-    var key = el.getAttribute('data-tr-title');
-    if (key && dic[key] != null) el.setAttribute('title', dic[key]);
-  });
-  var alted = document.querySelectorAll('[data-tr-alt]');
-  alted.forEach(function (el) {
-    var key = el.getAttribute('data-tr-alt');
-    if (key && dic[key] != null) el.setAttribute('alt', dic[key]);
+// 2. Cargar JSON de idiomas
+function cargarJSON(url) {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`Error ${response.status} al cargar ${url}`);
+    return response.json();
   });
 }
 
-/***
- *  CAMBIAR IDIOMA (público)
- ***/
-function cambiarIdioma(idioma) {
-  if (NMC_SUPPORTED.indexOf(idioma) === -1) idioma = NMC_DEFAULT;
-
-  // Detectar la ruta base hasta /view (robusto para subcarpetas como /view/admin)
-  var path = location.pathname;
-  var idx = path.indexOf('/view/');
-  var base = idx !== -1 ? path.slice(0, idx + '/view/'.length) : '/';
-  var rutaJSON = base + 'assets/languages/' + idioma + '.json';
-
-  cargarJSON(
-    rutaJSON,
-    function (traducciones) {
-      // aplicar
-      aplicarTraducciones(traducciones);
-      // guardar
-      try { localStorage.setItem(NMC_LANG_KEY, idioma); } catch (e) {}
-      // atributo lang en <html>
-      document.documentElement.setAttribute('lang', idioma);
-      // sincronizar <select> si existe
-      var select = document.getElementById('list');
-      if (select) select.value = idioma;
-    },
-    function () {
-      // si falla, reintenta con el idioma por defecto
-      if (idioma !== NMC_DEFAULT) {
-        cambiarIdioma(NMC_DEFAULT);
-      }
-    }
-  );
+// Utilidad: cambiar SOLO el nodo de texto del elemento (sin borrar hijos)
+function setTextPreservingChildren(el, text) {
+  const textNode = Array.from(el.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
+  if (textNode) {
+    textNode.nodeValue = text;
+  } else {
+    el.insertBefore(document.createTextNode(text), el.firstChild);
+  }
 }
 
-/***
- *  DETECTAR IDIOMA INICIAL
- ***/
-function detectarIdiomaInicial() {
+// 3. Aplicar traducciones (texto + placeholders)
+function aplicarTraducciones(traducciones) {
+  // a) Texto en elementos con data-traduccion
+  document.querySelectorAll('[data-traduccion]').forEach(el => {
+    const key = el.getAttribute('data-traduccion');
+    const val = traducciones && traducciones[key];
+    if (!val) return;
+
+    if (el.childElementCount === 0) {
+      el.textContent = val;
+    } else {
+      setTextPreservingChildren(el, val);
+    }
+  });
+
+  // b) Placeholders
+  document.querySelectorAll('[data-traduccion-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-traduccion-placeholder');
+    const val = traducciones && traducciones[key];
+    if (val) el.setAttribute('placeholder', val);
+  });
+}
+
+// 4. Cambiar idioma principal
+window.cambiarIdioma = async function(idioma) {
   try {
-    var guardado = localStorage.getItem(NMC_LANG_KEY);
-    if (guardado && NMC_SUPPORTED.indexOf(guardado) !== -1) return guardado;
-  } catch (e) {}
-  var nav = (navigator.language || '').slice(0, 2).toLowerCase();
-  if (NMC_SUPPORTED.indexOf(nav) !== -1) return nav;
-  return NMC_DEFAULT;
-}
+    const rutaJSON = `./assets/languages/${idioma}.json`;
+    const traducciones = await cargarJSON(rutaJSON);
+    aplicarTraducciones(traducciones);
 
-/***
- *  INIT
- ***/
-document.addEventListener('DOMContentLoaded', function () {
-  var inicial = detectarIdiomaInicial();
-  cambiarIdioma(inicial);
+    const select = document.getElementById('list');
+    if (select) select.value = idioma;
 
-  // Si existe el <select>, que llame a cambiarIdioma:
-  var select = document.getElementById('list');
-  if (select) {
-    select.value = inicial;
-    select.addEventListener('change', function () {
-      cambiarIdioma(this.value);
+    localStorage.setItem('lang', idioma);
+  } catch (err) {
+    console.error('Error al cambiar idioma:', err);
+  }
+};
+
+// 5. Guardar idioma y aplicarlo al cambiar selector
+window.cambiarUbicacion = function(idioma) {
+  localStorage.setItem('lang', idioma);
+  cambiarIdioma(idioma);
+};
+
+// ===== INICIALIZACIÓN ===== //
+document.addEventListener('DOMContentLoaded', function() {
+  const languageSelect = document.getElementById('list');
+  const lang = localStorage.getItem('lang') || (languageSelect && languageSelect.value) || 'es';
+  cambiarIdioma(lang);
+
+  if (languageSelect) {
+    languageSelect.value = lang;
+    languageSelect.addEventListener('change', function() {
+      cambiarUbicacion(this.value);
     });
   }
 });
-
-// Exponer en global por si lo llamas desde onclick:
-window.cambiarIdioma = cambiarIdioma;
-window.toggleLanguageSelector = toggleLanguageSelector;

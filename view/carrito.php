@@ -36,7 +36,7 @@ include('../model/carrito_read.php');
 </head>
 
 <body>
-  <!-- Header desde template -->
+
   <header class="site-header" id="site-header">
     <?php include('./assets/templates/header.php'); ?>
   </header>
@@ -48,10 +48,7 @@ include('../model/carrito_read.php');
 
         <div class="cabecera cf">
           <h1 data-traduccion="carrito">Carrito</h1>
-          <a href="./eventos.php" class="continuar">Seguir comprando</a>
-          <!-- Si quieres traducir “Seguir comprando”, añade la clave "seguir_comprando" a tus JSON y cambia a:
-               <a href="./eventos.php" class="continuar" data-traduccion="seguir_comprando"></a>
-          -->
+          <a href="./eventos.php" class="continuar" data-traduccion="seguir_comprando"></a>
         </div>
 
         <div class="carrito">
@@ -60,9 +57,7 @@ include('../model/carrito_read.php');
             $total = 0.0;
 
             if (empty($actual)) {
-              echo '<li class="items"><div class="infoWrap"><p>Tu carrito está vacío</p></div></li>';
-              // Para traducirlo: crea "carrito_vacio" en los JSON y usa:
-              // echo '<li class="items"><div class="infoWrap"><p data-traduccion="carrito_vacio"></p></div></li>';
+              echo '<li class="items"><div class="infoWrap"><p data-traduccion="cart_empty">Tu carrito está vacío</p></div></li>';
             } else {
               foreach ($actual as $info) {
                 $titulo = htmlspecialchars($info[0]);
@@ -102,6 +97,7 @@ include('../model/carrito_read.php');
           <ul>
             <li class="totalRow final">
               <span class="label" data-traduccion="total">Total</span>
+              <span class="label" data-traduccion="total">Total</span>
               <span class="value"><?= number_format($total, 2, ',', '.') . ' €' ?></span>
             </li>
             <li class="totalRow">
@@ -117,8 +113,7 @@ include('../model/carrito_read.php');
                   <button class="btn continuar" disabled>Comprar</button>
                 <?php endif; ?>
               <?php else: ?>
-                <p>Por favor, iniciar sesión para continuar</p>
-                <!-- Para traducir: crea "inicia_sesion_para_continuar" en los JSON y usa data-traduccion -->
+                <p data-traduccion="login2buy">Por favor, iniciar sesión para continuar</p>
               <?php endif; ?>
             </li>
           </ul>

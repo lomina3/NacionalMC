@@ -14,11 +14,12 @@
 
             <li>
                 <div id="language-selector" class="hidden">
-                    <!-- IMPORTANTE: cambiarUbicacion -> cambiarIdioma -->
-                    <select id="list" class="language-select" onchange="cambiarIdioma(this.value)">
-                        <option id="es" class="seleccionado" value="es" selected> 🇪🇸 ES</option>
-                        <option id="en" value="en"> 🇬🇧 EN</option>
-                        <option id="it" value="it"> 🇮🇹 IT</option>
+                    <select id="list" class="language-select" onchange="cambiarUbicacion(this.value)">
+                        <option id="es" class="seleccionado" value="es" selected="selected"> 🇪🇸 ES</option>
+                        <option id="en" class="" value="en"> 🇬🇧 EN</option>
+                        <option id="it" class="" value="it"> 🇮🇹 IT</option>
+                        <option id="de" class="" value="de"> 🇩🇪 DE</option>
+                        <option id="fr" class="" value="fr"> 🇫🇷 FR</option>
                     </select>
                 </div>
 

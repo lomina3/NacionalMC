@@ -5,9 +5,6 @@ session_start();
 //var_dump($_POST);
 //echo "<br>";
 
-include("../controller/controlador.php");
-include("../controller/login.php");
-
 if ($_SESSION["carrito"]<>NULL) {
     $_POST['tempCarrito'] = $_SESSION["carrito"];
 }
@@ -16,7 +13,6 @@ $correoElectronico = "";
 $login = new Login();
 $_SESSION['loggedin'] = false;
 $validado = $login->validar($_POST);
-
 
 if ($validado == false) {
     $correoElectronico = $_POST['email'];
@@ -35,6 +31,8 @@ if ($validado == false) {
     $_SESSION['loggedin'] = true;
     unset($_SESSION['carrito']);
     //var_dump($_SESSION);
+require_once("../controller/controlador.php");
+require_once("../controller/login.php");
     header("Location: ../view/index.php");
     die;
 } else {

@@ -26,7 +26,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
     <script src="https://kit.fontawesome.com/16f40acbe8.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI/tTQaAe5kOKfslCh6PQnJf/0fP+Q8hFg/2lSAE=" crossorigin="anonymous"></script>
-
 </head>
 
 

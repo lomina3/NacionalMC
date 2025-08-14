@@ -115,12 +115,18 @@ header {
 #apellidos {
   width: 100%;
 } 
-.mail-container,
+
+.mail-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .number-container,
 .message-container {
   width: 100%;
   margin-left: 5%;
 }
+
 .password-container {
   display: grid;
   width: 100%;

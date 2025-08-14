@@ -17,7 +17,6 @@ if (isset($_SESSION['email']) && isset($_SESSION['contrasena'])) {
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/pagoExitoso.css">
-
 </head>
 
 <body>
