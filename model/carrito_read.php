@@ -1,8 +1,10 @@
 <?php
-// model/carrito_read.php
-if (session_status() === PHP_SESSION_NONE)
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
-include_once('../controller/carritoService.php');
+}
+
+// Incluye carritoService usando __DIR__
+require_once(__DIR__ . '/../controller/carrito_service.php');
 
 $actual = null;
 if (isset($_SESSION['email'])) {

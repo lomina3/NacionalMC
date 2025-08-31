@@ -93,7 +93,7 @@ include('../model/carrito_read.php'); // define $actual según tu usuario
             <li class="totalRow">
               <?php if (isset($_SESSION['email'])): ?>
                 <?php if ($total > 0): ?>
-                  <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar">Comprar</a>
+                  <a href="metodo_pago.php?usuario=<?= urlencode($_SESSION['email']) ?>" class="btn continuar" data-traduccion="comprar">Comprar</a>
                 <?php else: ?>
                   <button class="btn continuar" disabled>Comprar</button>
                 <?php endif; ?>

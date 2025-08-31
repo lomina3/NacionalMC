@@ -5,7 +5,7 @@ if (!isset($_SESSION['email'])) {
     header('Location: ../view/login.php');
     exit;
 }
-include_once('../controller/carritoService.php');
+include_once('../controller/carrito_service.php');
 
 if (!empty($_GET['id'])) {
     (new carritoService())->remove($_SESSION['email'], (int) $_GET['id']);

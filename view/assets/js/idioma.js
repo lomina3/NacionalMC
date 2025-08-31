@@ -48,7 +48,7 @@ function aplicarTraducciones(traducciones) {
 // 4. Cambiar idioma principal
 window.cambiarIdioma = async function(idioma) {
   try {
-    const rutaJSON = `./assets/languages/${idioma}.json`;
+    const rutaJSON = `/view/assets/languages/${idioma}.json`;
     const traducciones = await cargarJSON(rutaJSON);
     aplicarTraducciones(traducciones);
 
